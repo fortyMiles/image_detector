@@ -3,6 +3,7 @@ import logging
 import os
 import uuid
 import random
+from pyIFP import get_water_print
 
 
 def uuid_naming_strategy(original_name):
@@ -41,9 +42,16 @@ class UploadHandler(tornado.web.RequestHandler):
                                  str(file['filename']),
                                  str(file['filename']))
 
+		
+            ratio = get_water_print(
+			os.path.join(self.upload_path, first_filename),
+			os.path.join(self.upload_path, second_filename)
+		)
+		
+	    result = 'YES' if ratio > 0.95 else 'NO'
             params = {
-                'similarity': random.choice(['YES', 'NO']),
-                'ratio': "{}%".format(random.random()*100),
+                'similarity': result,
+                'ratio': "{}%".format(ratio * 100),
                 'location': 'show',
                 'image1': self.static_url('images/{}'.format(first_filename)),
                 'image2': self.static_url('images/{}'.format(second_filename)),
