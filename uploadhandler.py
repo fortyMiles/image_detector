@@ -28,39 +28,46 @@ class UploadHandler(tornado.web.RequestHandler):
         self.naming_strategy = naming_strategy
 
     def post(self):
-        first_file = self.request.files['filearg1'][0]
-        second_file = self.request.files['filearg2'][0]
+        file1, file2 = 'filearg1', 'filearg2'
 
-        first_filename = first_file['filename']
-        second_filename = second_file['filename']
-        try:
-            files = [first_file, second_file]
-            for file in files:
-                with open(os.path.join(self.upload_path, file['filename']), 'w') as fh:
-                    fh.write(file['body'])
-                    logging.info("%s uploaded %s, saved as %s",
-                                 str(self.request.remote_ip),
-                                 str(file['filename']),
-                                 str(file['filename']))
+        if file1 in self.request.files:
+            first_file = self.request.files[file1][0]
+            first_filename = first_file['filename']
+            with open(os.path.join(self.upload_path, first_filename), 'wb') as f:
+                f.write(first_file['body'])
+                logging.info(" saved {}".format(first_filename))
+            first_filename = os.path.join(self.upload_path, first_filename)
+        else:
+            first_filename = self.get_body_argument("placeholder1")
 
-            if platform == 'darwin':
-                ratio = random.random()
-            else:
-                ratio = get_water_print(
-                    os.path.join(self.upload_path, first_filename),
-                    os.path.join(self.upload_path, second_filename))
+        if file2 in self.request.files:
+            second_file = self.request.files[file2][0]
+            second_filename = second_file['filename']
+            with open(os.path.join(self.upload_path, second_filename), 'wb') as f:
+                f.write(second_file['body'])
+                logging.info(" saved {}".format(second_filename))
 
-            result = 'YES' if ratio > 0.95 else 'NO'
+            second_filename = os.path.join(self.upload_path, second_filename)
+        else:
+            second_filename = self.get_body_argument('placeholder2')
 
-            params = {
-                'similarity': result,
-                'ratio': "{}%".format(ratio * 100),
-                'location': 'show',
-                'image1': self.static_url('images/{}'.format(first_filename)),
-                'image2': self.static_url('images/{}'.format(second_filename)),
-            }
 
-            self.render("index.html", **params)
+        if platform == 'darwin':
+            ratio = random.random()
+        else:
+            ratio = get_water_print(first_filename, second_filename)
 
-        except IOError as e:
-            logging.error("Failed to write file due to IOError %s", str(e))
+        result = 'YES' if ratio > 0.95 else 'NO'
+
+        params = {
+            'similarity': result,
+            'ratio': "{}%".format(ratio * 100),
+            'location': 'show',
+            'image1': first_filename,
+            'image2': second_filename,
+            'placeholder1': first_filename,
+            'placeholder2': second_filename,
+        }
+
+        self.render("index.html", **params)
+

@@ -7,12 +7,16 @@ import uploadhandler
 
 class UploadForm(tornado.web.RequestHandler):
     def get(self):
+        left = 'images/left1.jpg'
+        right = 'images/right1.jpg'
         params = {
             "similarity": 'NO',
             "ratio": '12.3%',
             "location": "",
-            "image1": self.static_url("img/portfolio/fullsize/1.jpg"),
-            "image2": self.static_url("img/portfolio/fullsize/2.jpg"),
+            "image1": self.static_url(left),
+            "image2": self.static_url(right),
+            "placeholder1": "static/" + left,
+            "placeholder2": "static/" + right,
         }
         self.render("index.html", **params)
 
