@@ -31,6 +31,7 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+    
      <script>
         window.location.hash = '#{{location}}';
     </script>
@@ -46,23 +47,14 @@
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand page-scroll" href="#page-top">新华智云</a>
+                <a class="navbar-brand page-scroll" href="#page-top">新华智云-图片版权</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a class="page-scroll" href="#about">About</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="#services">Services</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="#portfolio">Portfolio</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="#contact">Contact</a>
+                        <a class="page-scroll" href="#contact">Powered By: Matrix-AI</a>
                     </li>
                 </ul>
             </div>
@@ -74,10 +66,10 @@
     <header>
         <div class="header-content">
             <div class="header-content-inner">
-                <h1 id="homeHeading">Identify Your Authentic Images</h1>
+                <h1 id="homeHeading">图片版权鉴定</h1>
                 <hr>
-                <p>Enhanced by the deep leanring and artifical intelligence approaches, XinhuaZhiyun could indentify if one image is authentic, with a state of art accuracy 95.3%</p>
-                <a href="#show" class="btn btn-primary btn-xl page-scroll">Find Out More</a>
+                <p>基于Image Signature， 图像指纹，图像智能识别等人工智能与深度学习算法，新华智云能够快速鉴定图片版权是否冲突</p>
+                <a href="#show" class="btn btn-primary btn-xl page-scroll">点击开始</a>
             </div>
         </div>
     </header>
@@ -101,29 +93,43 @@
                         </div>
                     </a>
                 </div>
-                <div class="col-lg-6 col-sm-6">
-                    <a href="{{image2}}" class="portfolio-box">
-                        <img src="{{image2}}" class="img-responsive" id="blah_2" alt="">
-                        <div class="portfolio-box-caption">
-                            <div class="portfolio-box-caption-content">
-                                <div class="project-category text-faded">
-                                </div>
-                                <div class="project-name">
-                                    <input type="file" name="filearg2" id='file_02' value="upload one" style="padding: 40%; color: transparent"/>
+                <div class="container-fluid">
+                    <div class="row no-gutter popup-gallery">
+                        <div class="col-lg-6 col-sm-6">
+                            <a href={{image2}} class="portfolio-box">
+                                <img src={{image2}} id="blah_2" class="img-responsive" alt="">
+                                <div class="portfolio-box-caption">
+                                    <div class="portfolio-box-caption-content">
+                                        <div class="project-category text-faded">
+                                        </div>
+                                        <div class="project-name">
+                                            <input type="file" name="filearg2" id='file_02' value="upload one" style="padding: 40%; color: transparent"/>
                                 </div>
                             </div>
                         </div>
                     </a>
                 </div>
+
         </section>
 
     <aside class="bg-dark">
         <div class="container text-center">
             <div class="call-to-action">
-                <h2>Upload Two Images and Show their authentic</h2>
-                <h3>是否相似:{{similarity}}, 一致度: {{ratio}}</h3>
+                {% if similarity %}
+                <h2>版权是否冲突:<span style="color:red">是</span></h2>
+                {% else %}
+                <h2>版权是否冲突:<span style="color:red">否</span><</h2>
+                {% end %}
+                <h3>点击以上两侧图片，上传本地图片</h3>
+                <h2></h2>
+                <h2></h2>
+                <h2></h2>
+                <h2></h2>
+                <h2></h2>
+                <h2></h2>
+                <h2></h2>
             {% raw xsrf_form_html() %}
-            <input type="submit" value="Test Now" class="btn btn-default btn-xl sr-button"/>
+            <input type="submit" value="立即检测" class="btn btn-default btn-xl sr-button"/>
 	</form>
             </div>
         </div>
