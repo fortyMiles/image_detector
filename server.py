@@ -20,6 +20,11 @@ class UploadForm(tornado.web.RequestHandler):
         print('post one thing!')
 
 
+class ParticularHandler(tornado.web.RequestHandler):
+    def get(self):
+        self.render('particular.html')
+
+
 if __name__ == "__main__":
 
     define("debug", default=False, help="run in debug mode")
@@ -30,6 +35,7 @@ if __name__ == "__main__":
             (r"/", UploadForm),
             (r"/upload", uploadhandler.UploadHandler,
              dict(upload_path="static/images/", naming_strategy=None)),
+            (r"/cool", ParticularHandler),
         ],
         debug=True,
         template_path=os.path.join(os.path.dirname(__file__), "templates"),

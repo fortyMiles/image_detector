@@ -3,6 +3,7 @@
 import ctypes
 import numpy as np
 from numpy.ctypeslib import ndpointer
+from sys import platform
 
 
 IFP=None
@@ -55,8 +56,10 @@ def get_water_print(file_path_1, file_path_2):
     score = compare(ifp1,ifp2)
     return score
 
-libpath = "./libIFP.so"
-loadIFPLib(libpath)
+libpath = "./so/libIFP.so"
+
+if platform.startswith('linux'):
+    loadIFPLib(libpath)
 
 if __name__ == '__main__':
 	file_1 = './static/images/bird1.jpg'
