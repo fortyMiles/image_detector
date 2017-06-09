@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <title>Creative - Start Bootstrap Theme</title>
+
+        <!-- Bootstrap Core CSS -->
+        <link href={{ static_url("vendor/bootstrap/css/bootstrap.min.css") }} rel="stylesheet">
+
+        <!-- Custom Fonts -->
+        <link href={{ static_url("vendor/font-awesome/css/font-awesome.min.css") }} rel="stylesheet" type="text/css">
+        <link href={{ static_url("css/google/Open_Sans.css") }} rel="stylesheet" type="text/css">
+        <link href={{ static_url("css/google/Merriweather.css") }} rel="stylesheet" type="text/css">
+
+        <!-- Plugin CSS -->
+
+        <!-- Theme CSS -->
+        <link href={{ static_url("css/creative.css") }} rel="stylesheet">
+
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+            <![endif]-->
+
+            <script>
+window.location.hash = '#{{location}}';
+            </script>
+
+    </head>
+
+    <body id="page-top">
+
+        <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+            <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
+                    </button>
+                    <a class="navbar-brand page-scroll" href="#page-top">新华智云-图片版权</a>
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a class="page-scroll" href="#contact">Powered By: Matrix-AI</a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- /.navbar-collapse -->
+            </div>
+            <!-- /.container-fluid -->
+        </nav>
+
+        <header>
+            <div class="header-content">
+                <div class="header-content-inner">
+                    <h1 id="homeHeading">图片版权鉴定</h1>
+                    <hr>
+                    <p>基于Image Signature， 图像指纹，图像智能识别等人工智能与深度学习算法，新华智云能够快速鉴定图片版权是否冲突</p>
+                    <a href="#show" class="btn btn-primary btn-xl page-scroll">点击开始</a>
+                </div>
+            </div>
+        </header>
+
+        <form enctype="multipart/form-data" action="/upload" method="post">
+
+            <input type="hidden" value={{placeholder1}} name="placeholder1">
+            <input type="hidden" value={{placeholder2}} name="placeholder2">
+
+            <section class="no-padding" id="show">
+                <div class="container-fluid">
+                    <div class="row no-gutter popup-gallery">
+                        <div class="col-lg-6 col-sm-6">
+                            <a href={{image1}} class="portfolio-box">
+                                <img src={{image1}} id="blah_1" class="img-responsive" alt="">
+                                <div class="portfolio-box-caption">
+                                    <div class="portfolio-box-caption-content">
+                                        <div class="project-category text-faded">
+                                        </div>
+                                        <div class="project-name">
+                                            <input type="file" name="filearg1" id='file_01' value="upload one" style="padding: 40%; color: transparent"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="container-fluid">
+                            <div class="row no-gutter popup-gallery">
+                                <div class="col-lg-6 col-sm-6">
+                                    <a href={{image2}} class="portfolio-box">
+                                        <img src={{image2}} id="blah_2" class="img-responsive" alt="">
+                                        <div class="portfolio-box-caption">
+                                            <div class="portfolio-box-caption-content">
+                                                <div class="project-category text-faded">
+                                                </div>
+                                                <div class="project-name">
+                                                    <input type="file" name="filearg2" id='file_02' value="upload one" style="padding: 40%; color: transparent"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+
+            </section>
+
+            <aside class="bg-dark">
+                <div class="container text-center">
+                    <div class="call-to-action">
+                        {% if similarity %}
+                        <h2 id="result">版权是否冲突:<span style="color:red">&nbsp是&nbsp</span></h2>
+                        {% else %}
+                        <h2 id="result">版权是否冲突:<span style="color:#ff7620">&nbsp否&nbsp</span></h2>
+                        {% end %}
+                        <h3 id="click">点击以上两侧图片，上传本地图片</h3>
+                        <input id="submit_1" type="hidden" value="立即检测" class="btn btn-default btn-xl"/>
+                        <h3 id="empty1"></h3>
+                        <h3 id="empty2"></h3>
+                        <h2></h2>
+                        <h2></h2>
+                        <h2></h2>
+                        <h2></h2>
+                        <h2></h2>
+                        <h2></h2>
+                        <h2></h2>
+                        <h2></h2>
+                        <h2></h2>
+                        {% raw xsrf_form_html() %}
+                        <input id="submit" type="submit" value="立即检测" class="btn btn-default btn-xl "/>
+        </form>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- jQuery -->
+
+            <!-- Bootstrap Core JavaScript -->
+
+            <!-- Plugin JavaScript -->
+
+            <!-- Theme JavaScript -->
+            <script>
+function readURL(input, no) {
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+        reader.onload = function (e) {
+            $('#blah_' + no).attr('src', e.target.result);
+            var unknow_string = '<strong>待检测</strong>';
+            $('#result').fadeOut(0);
+            $('#click').fadeOut(0);
+            $('#submit').remove();
+            $('#empty1').text(" .");
+            $('#empty2').text('.');
+            $('#submit_1').attr({type: 'submit'});
+        }
+
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+
+$("#file_01").change(function(){
+    readURL(this, '1');
+});
+
+$("#file_02").change(function(){
+    readURL(this, '2');
+});
+
+            </script>
+    </body>
+
+</html>

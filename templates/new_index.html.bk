@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]> <html class="ie ie6"> <![endif]-->
+<!--[if IE 7 ]>    <html class="ie ie7"> <![endif]-->
+<!--[if IE 8 ]>    <html class="ie ie8"> <![endif]-->
+<!--[if gte IE 9 ]>    <html class="ie"> <![endif]-->
+<!--[if !(IE)]><!--> <html> <!--<![endif]-->
+<head>
+    <meta charset="utf-8"/>
+    <title>新华智云-图片版权</title>
+    <meta name="description" content="数据科学"/>
+    <meta name="keywords" content="数据科学,dome"/>
+    <!--[if IE]>
+    <script src="http://a.tbcdn.cn/apps/tdata/js/base/html5-reset.js"></script>
+    <![endif]-->
+    <link rel="stylesheet" type="text/css" href="http://a.tbcdn.cn/apps/tdata/css/global/general.css"/>
+    <link rel="stylesheet" type="text/css" href={{ static_url("js/swm/bootstrap.min.css") }}/>
+    <link rel="stylesheet" type="text/css" href={{ static_url("js/swm/font-awesome.min.css") }}/>
+    <link rel="stylesheet" type="text/css" href={{ static_url("js/swm/fonts.css") }}/>
+    <link rel="stylesheet" type="text/css" href={{ static_url("js/swm/swarm.css") }}/>
+    <base target="_blank"/>
+</head>
+<body style="overflow: hidden;">
+<header id="header">
+    <div class="header-wrap clear-float">
+		<h1><b>新华智云 </b><small style="font-size:14px;"> 图片版权</small></h1>
+    </div>
+</header>
+<div id="content" data-usage="swarm">
+    <canvas id="canvas-anim" width="1440" height="300"></canvas>
+    <div class="mod-search-bar">
+        <div class="content clear-float">
+
+			<form action="/parser_result" method="POST">
+				<textarea placeholder="上传测试图片" name="doc"></textarea>
+				<button id="desc_gen" class="btn btn-block btn-warning btn-lg" type="submit" style="width: 100%;margin-top:10px;">点击测试</button>
+        	</form>
+		</div>
+    </div>
+</div>
+<footer id="footer">
+    <!-- 页尾 -->
+</footer>
+<script type="text/javascript" src={{ static_url("js/swm/merge-v2.0.js") }}></script>
+<script src={{ static_url("js/swm/canvas-anim.js") }}></script>
+<script src={{ static_url("js/swm/index.js") }}></script>
+</body>
+</html>

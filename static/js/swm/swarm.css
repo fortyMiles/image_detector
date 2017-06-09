@@ -1,0 +1,389 @@
+body{
+    background-color: #232323;
+    background-image: -webkit-radial-gradient(center top,#5BBDF8 10%,#232323);
+    background-repeat: no-repeat;
+    -webkit-font-smoothing: antialiased;
+}
+#header{
+    height: 50px;
+    background-color: rgba(0,0,0,0.2);
+}
+#header small{
+	color: #FFF;
+}
+#header h1{
+    margin: 0;
+    color: #FFF;
+    font-family: '微软雅黑';
+    line-height: 50px;
+	font-size: 30px;
+}
+#header .header-wrap{
+    width: 1200px;
+    margin: 0 auto;
+}
+#header .header-wrap .logo{
+    float: left;
+}
+#header .header-wrap .logo a:link,
+#header .header-wrap .logo a:visited,
+#header .header-wrap .logo a:hover,
+#header .header-wrap .logo a:active{
+    text-decoration: none;
+    color: #FFF;
+}
+#header .header-wrap .list{
+    float: right;
+    margin-top: 10px;
+}
+#header .header-wrap .list a{
+    display: block;
+    height: 30px;
+    padding: 0 10px;
+    line-height: 30px;
+    text-align: center;
+}
+#header .header-wrap .list a i{
+    margin-right: 4px;
+    font-size: 16px;
+}
+#header .header-wrap .list li.current a:link,
+#header .header-wrap .list li.current a:visited{
+    color: #FFF;
+}
+#header .header-wrap .list a:link,
+#header .header-wrap .list a:visited{
+    color: #999;
+}
+#header .header-wrap .list a:hover,
+#header .header-wrap .list a:active{
+    color: #FFF;
+}
+#header .search-container{
+    float: right;
+    position: relative;
+    height: 26px;
+    width: 320px;
+    margin: 12px 54px 0 0;
+}
+#header .search-bar{
+    height: 26px;
+    width: 300px;
+    padding: 0 26px 0 10px;
+    background-color: #fff;
+    border-radius: 10px;
+    border: 0 none;
+    line-height: 26px;
+    outline: none;
+}
+#header .search-container>a{
+    position: absolute;
+    top: 0;
+    right: 20px;
+    display: block;
+    height: 26px;
+    width: 26px;
+    text-align: center;
+    line-height: 26px;
+}
+#content{
+    position: relative;
+}
+#content label{
+    position: relative;
+	color: black;
+    font-family: '微软雅黑';
+	font-size: 15px;
+}
+#content textarea{
+	width: 100%;
+	height:320px;
+	background-color: white;
+    font-family: '微软雅黑';
+	font-size: 15px;
+	border-color:gray;
+	border-width:1px;
+	padding:5px;
+	background-color: rgba(255,255,255,0.1);
+}
+#content textarea:hover{
+	background-color: rgba(255,255,255,0.8);
+}
+.mod-search-bar{
+    position: absolute;
+    width: 100%;
+    min-width: 1200px;
+    left: 0;
+    top: 80px;
+}
+.mod-search-bar .content{
+    width: 500px;
+    margin: 0 auto;
+    height: 400px;
+    padding: 10px;
+    background-color: rgba(255,255,255,0.2);
+    border-radius: 3px;
+}
+.mod-search-bar .content input{
+    float: left;
+    height: 40px;
+    width: 480px;
+    padding: 0 10px;
+    border-radius: 3px 0 0 3px;
+    border: 0 none;
+    outline: 0 none;
+}
+.mod-search-bar .content>a{
+    display: block;
+    height: 40px;
+    width: 100px;
+    float: left;
+    background-color: #ffcc00;
+    line-height: 40px;
+    text-align: center;
+    color: #232323;
+}
+.mod-search-bar .content>a i{
+    margin-right: 5px;
+    padding-left: 1px;
+}
+.mod-search-bar .content>a.peaple-search-btn{
+    margin-left: 10px;
+    background-color: #FA8144;
+    color: #FFF;
+}
+.mod-swarm-list,
+.mod-swarm-detail{
+    width: 1200px;
+    margin: 20px auto 0;
+}
+.mod-swarm-list header,
+.cell-swarm-desc .cell-header,
+.cell-commodity .cell-header,
+.cell-relevant-swarm .cell-header{
+    background: -webkit-linear-gradient(left, rgba(0,0,0,1), rgba(0,0,0,0));
+}
+.mod-swarm-list header .title{
+    border-left: 3px solid #00D998;
+    padding: 0 200px 0 10px;
+    height: 40px;
+    margin: 0;
+    line-height: 40px;
+    font-size: 22px;
+    color: #bbb;
+}
+.swarm-list li{
+    height: 400px;
+    width: 400px;
+}
+.swarm-list li>a{
+    display: block;
+    height: 380px;
+    width: 380px;
+    margin: 10px;
+    border-radius: 10px;
+    background-color: rgba(0,0,0,0.5);
+}
+.swarm-list li>a:link,
+.swarm-list li>a:visited{
+    text-decoration: none;
+}
+.swarm-list li>a:hover,
+.swarm-list li>a:active{
+    text-decoration: none;
+    background-color: rgba(0,0,0,1);
+}
+.cell-swarm-desc .cell-header .title,
+.cell-commodity .cell-header .title,
+.cell-relevant-swarm .cell-header .title{
+    margin: 0;
+    height: 40px;
+    padding-left: 10px;
+    line-height: 40px;
+    font-size: 22px;
+    color: #bbb;
+}
+.cell-swarm-desc .cell-content .swarm-desc-wordle{
+    width: 710px;
+    height: 294px;
+    background-color: rgba(0,0,0,0.4);
+    float: left;
+}
+.cell-swarm-desc .cell-content .swarm-desc-wordle:hover{
+    background-color: rgba(0,0,0,1);
+}
+.cell-swarm-desc .cell-content .auction-list{
+    margin-top: 20px;
+    margin-left: -10px;
+}
+.cell-swarm-desc .cell-content .auction-list dl{
+    margin-left: 10px;
+    padding: 10px;
+    background-color: rgba(255,255,255,0.5);
+}
+.cell-swarm-desc .cell-content .auction-list dl:hover{
+    background-color: rgba(255,255,255,1);
+}
+.auction-list dt>a{
+    display: block;
+    width: 210px;
+    height: 210px;
+    border: 1px solid #cccccc;
+    overflow: hidden;
+    line-height: 208px;
+    text-align: center;
+}
+.auction-list dd.title{
+    width: 210px;
+    height: 36px;
+    line-height: 18px;
+    margin: 4px 0;
+    overflow: hidden;
+}
+.auction-list dd.title a:link,
+.auction-list dd.title a:visited{
+    color: #333;
+}
+.auction-list dd.title a:hover,
+.auction-list dd.title a:active{
+    color: #FF7300;
+}
+.auction-list dd.price{
+    font-weight: 700;
+    color: #FF2900;
+}
+.top-list{
+    width: 1200px;
+}
+.top-list>dt{
+    position: relative;
+    float: left;
+    width: 400px;
+    height: 300px;
+    overflow: hidden;
+    margin-top: 20px;
+    border-radius: 10px 0 0 10px;
+    background-color: rgba(0,0,0,0.5);
+}
+.top-list>dd{
+    float: left;
+    width: 800px;
+    height: 300px;
+    margin-top: 20px;
+    border-radius: 0 10px 10px 0;
+    background-color: rgba(0,0,0,0.5);
+}
+.top-list>dt a{
+    position: absolute;
+    left: 0;
+    top: -50px;
+    text-decoration: none;
+    font-weight: 400;
+}
+.top-list dd>ul>li{
+    width: 260px;
+}
+.top-list dd>ul{
+    margin-top: 25px;
+}
+.top-list .auction-list{
+    width: 800px;
+}
+.top-list .auction-list dl{
+    position: relative;
+}
+.top-list .auction-list dl dt a{
+    display: block;
+    width: 250px;
+    height: 250px;
+    line-height: 248px;
+}
+.top-list .auction-list dl>.title{
+    display: none;
+    position: absolute;
+    left: 1px;
+    bottom: 1px;
+    width: 248px;
+    padding: 0 3px;
+    margin: 0;
+    background-color: rgba(0,0,0,0.8);
+    font-size: 12px;
+    line-height: 18px;
+}
+.top-list .auction-list dl:hover>.title{
+    display: block;
+}
+.top-list .auction-list dl>.title a:link,
+.top-list .auction-list dl>.title a:visited{
+    color: #ccc;
+}
+.top-list .auction-list dl>.title a:hover,
+.top-list .auction-list dl>.title a:active{
+    color: #FF7300;
+}
+.top-list .auction-list li:nth-child(n+3){
+    width: 130px;
+}
+.top-list .auction-list li:nth-last-child(1){
+    position: relative;
+    width: 144px;
+}
+.top-list .auction-list li:nth-last-child(1) a{
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 120px;
+    height: 120px;
+    background-color: rgba(144,144,144,0.8);
+    line-height: 118px;
+    text-align: center;
+    font-size: 20px;
+}
+.top-list .auction-list li:nth-last-child(1)>p{
+    display: block;
+    float: left;
+    height: 52px;
+    width: 52px;
+    border: 1px solid #ccc;
+    margin: 0 16px 16px 0;
+    line-height: 48px;
+    text-align: center;
+}
+.top-list .auction-list li:nth-last-child(1)>p>img{
+    display: inline-block;
+}
+.top-list .auction-list li:nth-child(n+3)>dl{
+    margin-bottom: 10px;
+}
+.top-list .auction-list li:nth-child(n+3) .title{
+    display: none;
+}
+.top-list .auction-list li:nth-child(n+3) dt>a{
+    width: 120px;
+    height: 120px;
+    line-height: 118px;
+}
+.top-list .auction-list li .more-btn:link,
+.top-list .auction-list li .more-btn:visited{
+    text-decoration: none;
+    color: #FFF;
+}
+.top-list .auction-list li .more-btn:hover,
+.top-list .auction-list li .more-btn:active{
+    text-decoration: none;
+    background-color: rgba(196,196,196,0.9);
+    color: #232323;
+}
+.no-content{
+    width: 1200px;
+    height: 500px;
+    line-height: 500px;
+    margin-top: 10px;
+    background-color: rgba(0,0,0,0.8);
+    text-align: center;
+    color: #FFF;
+}
+#footer{
+    height: 100px;
+}

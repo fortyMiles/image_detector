@@ -26,7 +26,24 @@ class UploadForm(tornado.web.RequestHandler):
 
 class ParticularHandler(tornado.web.RequestHandler):
     def get(self):
+
         self.render('particular.html')
+
+
+class NewIndex(tornado.web.RequestHandler):
+    def get(self):
+        left = 'img/bird1.jpg'
+        right = 'img/bird2.jpg'
+        params = {
+            "similarity": 'NO',
+            "ratio": '12.3%',
+            "location": "",
+            "image1": self.static_url(left),
+            "image2": self.static_url(right),
+            "placeholder1": "static/" + left,
+            "placeholder2": "static/" + right,
+        }
+        self.render('index.html', **params)
 
 
 if __name__ == "__main__":
@@ -36,7 +53,7 @@ if __name__ == "__main__":
     parse_command_line()
     application = tornado.web.Application(
         [
-            (r"/", UploadForm),
+            (r"/", NewIndex),
             (r"/upload", uploadhandler.UploadHandler,
              dict(upload_path="static/images/", naming_strategy=None)),
             (r"/cool", ParticularHandler),

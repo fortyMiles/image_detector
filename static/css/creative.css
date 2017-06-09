@@ -7,6 +7,8 @@ html,
 body {
   height: 100%;
   width: 100%;
+  background-color: #000000;
+  //background-image: url('https://i.stack.imgur.com/0BYg1.png');
 }
 body {
   font-family: 'Merriweather', 'Helvetica Neue', Arial, sans-serif;
@@ -46,8 +48,7 @@ p {
   background-color: #F05F40;
 }
 .bg-dark {
-  //background-color: #f05f40;
-  background-image: url('../img/dark.jpg');
+  background-color: #000000;
   color: white;
 }
 .text-faded {
@@ -156,7 +157,7 @@ header {
   background-size: cover;
   -o-background-size: cover;
   background-position: center;
-  background-image: url('../img/bg.gif');
+  background-image: url('../img/bg2.gif');
   text-align: center;
   color: white;
 }
@@ -419,4 +420,14 @@ body {
 .file_upload {
     padding: 40%;
     color: transparent;
+}
+
+.img-left{
+    max-width: 65%;
+    margin: auto;
+}
+
+.img-right{
+    max-width: 65%;
+    margin: auto;
 }

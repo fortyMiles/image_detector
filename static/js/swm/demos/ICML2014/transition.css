@@ -1,0 +1,60 @@
+/*******************************************************/
+/***************** Rotation Effects ********************/
+/*******************************************************/
+
+.te-perspective{
+    -webkit-perspective: 1000;
+}
+.te-transition,
+.te-cover{
+    position: absolute;
+    width: 100%;
+    height: 370px;
+    top: 100px;
+}
+.te-transition,
+.te-cover.te-hide,
+.te-images{ display: none; }
+.te-transition.te-show { display: block; }
+.te-back,
+.te-front{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+.te-front{ z-index: 2; }
+.te-back{
+    z-index: 1;
+    -webkit-backface-visibility: hidden;
+}
+/***************** Rotation1 ********************/
+.te-rotation1.te-show .te-front,
+.te-rotation1.te-show .te-back{
+    -webkit-transform-origin: 50% 100%;
+}
+.te-rotation1.te-show .te-front{
+    -webkit-animation: rotationFront 0.8s linear;
+}
+.te-rotation1.te-show .te-back {
+    -webkit-animation: rotationBack 0.8s linear;
+}
+@-webkit-keyframes rotationFront{
+    0% { -webkit-transform: rotate3d(1,0,0,0); opacity: 1; }
+    50% { -webkit-transform: rotate3d(1,0,0,-90deg); opacity: 0.5; }
+    100% { -webkit-transform: rotate3d(1,0,0,-180deg); opacity: 0; }
+}
+@-webkit-keyframes rotationBack{
+    /*
+    0% { opacity: 0; rotate3d(1,0,0,90deg); }
+    30% { -webkit-transform: rotate3d(1,0,0,90deg); opacity: 0; }
+    100% { -webkit-transform: rotate3d(1,0,0,0); opacity: 1;}
+    */
+
+    0% { opacity: 0; rotate3d(1,0,0,90deg); }
+    30% { -webkit-transform: rotate3d(1,0,0,90deg); opacity: 0; }
+    60% { -webkit-transform: rotate3d(1,0,0,-13deg); opacity: 1; }
+    70% { -webkit-transform: rotate3d(1,0,0,8deg); opacity: 1; }
+    80% { -webkit-transform: rotate3d(1,0,0,0deg); opacity: 1; }
+    95% { -webkit-transform: rotate3d(1,0,0,3deg); opacity: 1; }
+    100% { -webkit-transform: rotate3d(1,0,0,0deg); opacity: 1; }
+}
