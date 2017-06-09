@@ -4,7 +4,6 @@ import os
 import logging
 import uploadhandler
 
-
 class UploadForm(tornado.web.RequestHandler):
     def get(self):
         left = 'images/left1.jpg'
@@ -46,8 +45,7 @@ class NewIndex(tornado.web.RequestHandler):
         self.render('index.html', **params)
 
 
-if __name__ == "__main__":
-
+def main():
     define("debug", default=False, help="run in debug mode")
     define("port", default=1234, help="run server on given port", type=int)
     parse_command_line()
@@ -66,3 +64,7 @@ if __name__ == "__main__":
     application.listen(options.port)
     logging.info("Server running on port %d", options.port)
     tornado.ioloop.IOLoop.instance().start()
+
+if __name__ == "__main__":
+    main()
+
