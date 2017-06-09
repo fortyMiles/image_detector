@@ -51,11 +51,11 @@ class UploadHandler(tornado.web.RequestHandler):
         else:
             second_filename = self.get_body_argument('placeholder2')
 
-
         if platform == 'darwin':
             ratio = random.random()
         else:
             ratio = get_water_print(first_filename, second_filename)
+            logging.info(ratio)
 
         result = 'YES' if ratio > 0.95 else 'NO'
 
