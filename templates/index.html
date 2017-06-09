@@ -19,7 +19,9 @@
         <link rel="stylesheet" type="text/css" href={{ static_url("js/swm/swarm.css") }}/>
         <link rel="stylesheet" type="text/css" href={{ static_url("css/new_creative.css") }}/>
         <script src={{ static_url("js/jquery.min.js") }}></script>
-        <base target="_blank"/>
+        <script>
+        console.log('similarity: {{ratio}}');
+        </script>
 </head>
 <body style="overflow: hidden;">
     <header id="header">
@@ -38,7 +40,7 @@
             <h1><b>新华智云 </b><small style="font-size:14px;"> 图片版权鉴定</small></h1>
         </div>
     </header>
-    <form id='file-uploder' target="_blank" enctype="multipart/form-data" action="/upload" method="post">
+    <form id='file-uploder' enctype="multipart/form-data" action="/upload" method="post">
             <input type="hidden" value={{placeholder1}} name="placeholder1">
             <input type="hidden" value={{placeholder2}} name="placeholder2">
 
@@ -117,8 +119,7 @@ function readURL(input, no) {
         var reader = new FileReader();
         reader.onload = function (e) {
             $('#blah_' + no).attr('src', e.target.result);
-            var unknow_string = '<strong>待检测</strong>';
-            $('#result').fadeOut(0);
+            $('#result').fadeOut(1);
             $('#empty1').text(" .");
             $('#empty2').text('.');
         }
