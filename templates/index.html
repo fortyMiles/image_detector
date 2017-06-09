@@ -25,12 +25,12 @@
 </head>
 <body style="overflow: hidden;">
     <header id="header">
-        <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+        <nav id="mainNav" class="navbar navbar-default navbar-fixed-top" style="background-color: #231e1e">
             <a class="navbar-brand page-scroll" href="/">新华智云<small style="font-size:14px;color:#777">-图片版权鉴定</small></a>
             <div class="navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a class="page-scroll" href="">Image Signature, Deep Learning, Powered By: <strong>@Matrix-AI</strong> &nbsp &nbsp </a>
+                        <a class="page-scroll" href="">Powered by image signature/deep learning techniques <strong>@Matrix-AI</strong> &nbsp &nbsp </a>
                     </li>
                 </ul>
             </div>
@@ -60,7 +60,7 @@
                                 </div>
                             </div>
                         </a>
-                        <button type=button id="button_01" class="btn btn-block btn-lg btn-upload" style="width: 100%;margin-to    p:10px;">选择需鉴定的图片</button>
+                        <button type=button id="button_01" class="btn btn-block btn-lg btn-upload" style="width: 100%;margin-to    p:10px;">点击上传待鉴定图片</button>
                     </div>
                 </div>
                 <div class="col-lg-6 col-sm-6 col-right">
@@ -75,18 +75,18 @@
                                 </div>
                             </div>
                         </a>
-                        <button type=button id="button_02" class="btn btn-block btn-lg btn-upload" style="width: 100%;margin-to    p:10px;">选择需鉴定的图片</button>
+                        <button type=button id="button_02" class="btn btn-block btn-lg btn-upload" style="width: 100%;margin-to    p:10px;">点击上传待鉴定图片</button>
                     </div>
                 </div>
                 <div class="submit-div">
                     <h2 id="result" style="
                             margin-left: -94px;
-                            margin-top: -24px;
-                            ">版权鉴定结果:
+                            margin-top: -60px;;
+                            ">鉴定结果: 以上二图版权
                             {% if similarity %}
-                            <span style="color:red">&nbsp版权冲突&nbsp</span></h2>
+                            <span style="color:red">&nbsp冲突&nbsp</span></h2>
                             {% else %}
-                            <span style="color:red">&nbsp版权未冲突&nbsp</span></h2>
+                            <span style="color:red">&nbsp未冲突&nbsp</span></h2>
                             {% end %}
                         {% raw xsrf_form_html() %}
                     <input id="submit" type="submit" value="点击检测版权" class="btn btn-primary btn-xl"/>
