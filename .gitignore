@@ -3,3 +3,4 @@ __pychache__
 static/images/
 __pycache__/*
 __pycache__/
+*.log
