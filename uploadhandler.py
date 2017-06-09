@@ -5,11 +5,12 @@ import uuid
 import random
 from pyIFP import get_water_print
 from sys import platform
+import re
 
 
 def uuid_naming_strategy(original_name):
     "File naming strategy that ignores original name and returns an UUID"
-    return str(uuid.uuid4())
+    return str(uuid.uuid4()) + '.jpg'
 
 
 class UploadHandler(tornado.web.RequestHandler):
@@ -32,7 +33,7 @@ class UploadHandler(tornado.web.RequestHandler):
 
         if file1 in self.request.files:
             first_file = self.request.files[file1][0]
-            first_filename = first_file['filename']
+            first_filename = uuid_naming_strategy(first_file['filename'])
             with open(os.path.join(self.upload_path, first_filename), 'wb') as f:
                 f.write(first_file['body'])
                 logging.info(" saved {}".format(first_filename))
@@ -42,7 +43,7 @@ class UploadHandler(tornado.web.RequestHandler):
 
         if file2 in self.request.files:
             second_file = self.request.files[file2][0]
-            second_filename = second_file['filename']
+            second_filename = uuid_naming_strategy(['filename'])
             with open(os.path.join(self.upload_path, second_filename), 'wb') as f:
                 f.write(second_file['body'])
                 logging.info(" saved {}".format(second_filename))

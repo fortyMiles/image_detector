@@ -119,11 +119,11 @@
         <div class="container text-center">
             <div class="call-to-action">
                 {% if similarity %}
-                <h2>版权是否冲突:<span style="color:red">&nbsp是&nbsp</span></h2>
+                <h2 id="result">版权是否冲突:<span style="color:red">&nbsp是&nbsp</span></h2>
                 {% else %}
-                <h2>版权是否冲突:<span style="color:#ff7620">&nbsp否&nbsp</span></h2>
+                <h2 id="result">版权是否冲突:<span style="color:#ff7620">&nbsp否&nbsp</span></h2>
                 {% end %}
-                <h3>点击以上两侧图片，上传本地图片</h3>
+                <h3 id="click">点击以上两侧图片，上传本地图片</h3>
                 <h2></h2>
                 <h2></h2>
                 <h2></h2>
@@ -132,7 +132,7 @@
                 <h2></h2>
                 <h2></h2>
             {% raw xsrf_form_html() %}
-            <input type="submit" value="立即检测" class="btn btn-default btn-xl sr-button"/>
+            <input id="submit" type="submit" value="立即检测" class="btn btn-default btn-xl sr-button"/>
 	</form>
             </div>
         </div>
@@ -151,13 +151,15 @@
 
     <!-- Theme JavaScript -->
     <script src={{ static_url("js/creative.js") }}></script>
-    <script src={{ static_url("js/image_shower.js") }}></script>
     <script>
    function readURL(input, no) {
         if (input.files && input.files[0]) {
             var reader = new FileReader();
             reader.onload = function (e) {
                 $('#blah_' + no).attr('src', e.target.result);
+                var unknow_string = '<strong>待检测</strong>';
+                $('#result').fadeOut(1000);
+                $('#click').fadeOut(1000);
             }
             
             reader.readAsDataURL(input.files[0]);
