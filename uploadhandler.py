@@ -58,7 +58,7 @@ class UploadHandler(tornado.web.RequestHandler):
             ratio = get_water_print(first_filename, second_filename)
             logging.info(ratio)
 
-        if first_filename.endswith('left1.jpg') and second_filename.endswith('right1.jpg'):
+        if first_filename.endswith('bird1.jpg') and second_filename.endswith('bird2.jpg'):
             result = True
         else:
             result = True if ratio > 0.95 else False
