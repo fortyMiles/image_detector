@@ -124,6 +124,11 @@
                 <h2 id="result">版权是否冲突:<span style="color:#ff7620">&nbsp否&nbsp</span></h2>
                 {% end %}
                 <h3 id="click">点击以上两侧图片，上传本地图片</h3>
+                <input id="submit_1" type="hidden" value="立即检测" class="btn btn-default btn-xl"/>
+                <h3 id="empty1"></h3>
+                <h3 id="empty2"></h3>
+                <h2></h2>
+                <h2></h2>
                 <h2></h2>
                 <h2></h2>
                 <h2></h2>
@@ -132,7 +137,7 @@
                 <h2></h2>
                 <h2></h2>
             {% raw xsrf_form_html() %}
-            <input id="submit" type="submit" value="立即检测" class="btn btn-default btn-xl sr-button"/>
+            <input id="submit" type="submit" value="立即检测" class="btn btn-default btn-xl "/>
 	</form>
             </div>
         </div>
@@ -158,8 +163,12 @@
             reader.onload = function (e) {
                 $('#blah_' + no).attr('src', e.target.result);
                 var unknow_string = '<strong>待检测</strong>';
-                $('#result').fadeOut(1000);
-                $('#click').fadeOut(1000);
+                $('#result').fadeOut(0);
+                $('#click').fadeOut(0);
+                $('#submit').remove();
+                $('#empty1').text(" .");
+                $('#empty2').text('.');
+                $('#submit_1').attr({type: 'submit'});
             }
             
             reader.readAsDataURL(input.files[0]);

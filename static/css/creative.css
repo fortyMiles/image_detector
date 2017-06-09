@@ -156,7 +156,7 @@ header {
   background-size: cover;
   -o-background-size: cover;
   background-position: center;
-  background-image: url('../img/dark.jpg');
+  background-image: url('../img/bg.gif');
   text-align: center;
   color: white;
 }
@@ -203,7 +203,7 @@ header .header-content .header-content-inner p {
     font-size: 50px;
   }
   header .header-content .header-content-inner p {
-    font-size: 18px;
+    font-size: 14px;
     max-width: 80%;
     margin-left: auto;
     margin-right: auto;
