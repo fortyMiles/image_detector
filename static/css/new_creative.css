@@ -186,3 +186,8 @@ fieldset[disabled] .btn-primary.active {
 .nav-text{
     color: #bfbdbd;
 }
+
+.img-show {
+    width: 330px;
+    height: 243px;
+}

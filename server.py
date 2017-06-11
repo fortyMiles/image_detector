@@ -57,8 +57,8 @@ def main():
             (r"/cool", ParticularHandler),
         ],
         debug=True,
-        template_path=os.path.join(os.path.dirname(__file__), "templates"),
-        static_path=os.path.join(os.path.dirname(__file__), "static"),
+        template_path=os.path.join(os.path.dirname(__file__), "./templates"),
+        static_path=os.path.join(os.path.dirname(__file__), "./static"),
         xsrf_cookies=False,
     )
     application.listen(options.port)

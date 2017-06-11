@@ -34,21 +34,20 @@ class UploadHandler(tornado.web.RequestHandler):
         if file1 in self.request.files:
             first_file = self.request.files[file1][0]
             first_filename = uuid_naming_strategy(first_file['filename'])
-            with open(os.path.join(self.upload_path, first_filename), 'wb') as f:
+            first_filename = os.path.join(self.upload_path, first_filename)
+            with open(first_filename, 'wb') as f:
                 f.write(first_file['body'])
                 logging.info(" saved {}".format(first_filename))
-            first_filename = os.path.join(self.upload_path, first_filename)
         else:
             first_filename = self.get_body_argument("placeholder1")
 
         if file2 in self.request.files:
             second_file = self.request.files[file2][0]
             second_filename = uuid_naming_strategy(['filename'])
-            with open(os.path.join(self.upload_path, second_filename), 'wb') as f:
+            second_filename = os.path.join(self.upload_path, second_filename)
+            with open(second_filename, 'wb') as f:
                 f.write(second_file['body'])
                 logging.info(" saved {}".format(second_filename))
-
-            second_filename = os.path.join(self.upload_path, second_filename)
         else:
             second_filename = self.get_body_argument('placeholder2')
 
