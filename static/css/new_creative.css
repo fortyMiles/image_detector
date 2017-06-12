@@ -181,10 +181,10 @@ fieldset[disabled] .btn-primary.active {
 }
 
 .result {
-    margin: auto;
-    margin-left: -12%;
-    margin-bottom: 4%;
-    margin-top: -3%;
+    margin-left: -94px;
+    margin-top: -6%;
+    color: white;
+    font-family: '微软雅黑';
 }
 
 .nav-text{
@@ -198,9 +198,20 @@ fieldset[disabled] .btn-primary.active {
 .nav-zhiyun{
     background-color: #232323;
     background-image: -webkit-radial-gradient(center top,#5BBDF8 10%,#232323);
+    border-color: rgba(80, 158, 206, 0.42);
+}
+
+.nav-left{
+    margin-left: 4%;
+}
+
+.nav-right{
+    margin-right: 1%;
 }
 
 .img-show {
     width: 330px;
     height: 243px;
 }
+
+

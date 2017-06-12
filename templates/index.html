@@ -26,9 +26,9 @@
 <body style="overflow: hidden;">
     <header id="header">
         <nav id="mainNav" class="navbar navbar-default navbar-fixed-top nav-zhiyun">
-            <a class="navbar-brand page-scroll nav-text" href="/" style="color: #FFF">新华智云<small style="font-size:14px; color: #FFF">-图片版权鉴定</small></a>
+            <a class="navbar-brand page-scroll nav-text nav-left" href="/" style="color: #FFF"><strong>新华智云</strong><small style="font-size:14px; color: #FFF">-图片版权鉴定</small></a>
             <div class="navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-right">
+                <ul class="nav navbar-nav navbar-right nav-right">
                     <li>
                         <a class="page-scroll" style="color: #ececec" href="">Powered by image signature/deep learning techniques <strong>@Matrix-AI</strong> &nbsp &nbsp </a>
                     </li>
@@ -79,11 +79,8 @@
                     </div>
                 </div>
                 <div class="submit-div">
-                    <h2 id="result" style="
-                            margin-left: -94px;
-                            margin-top: -6%;
-                            color: white;
-                            ">鉴定结果: 以上二图间版权
+                    <h2 id="result" class="result
+                    "><strong>鉴定结果: 以上二图间版权</strong>
                             {% if similarity %}
                             <span style="color:red">&nbsp冲突&nbsp</span></h2>
                             {% else %}
