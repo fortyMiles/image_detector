@@ -117,9 +117,10 @@ function readURL(input, no) {
         var reader = new FileReader();
         reader.onload = function (e) {
             $('#blah_' + no).attr('src', e.target.result);
-            $('#result').fadeOut(1);
+            $('#result').fadeOut(15);
             $('#empty1').text(" .");
             $('#empty2').text('.');
+            $('#submit').addClass('btn-ready');
         }
 
         reader.readAsDataURL(input.files[0]);

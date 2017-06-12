@@ -130,13 +130,18 @@
     font-weight: 700;
     text-transform: uppercase;
     color: white;
-    background-color: #2e3040;
+    background-color: rgba(66, 69, 95, 0.85);
     border-color: #2e3040;
     -webkit-transition: all 0.35s;
     -moz-transition: all 0.35s;
     transition: all 0.35s;
     padding: 15px 30px;
 }
+
+.btn-ready{
+    background-color: rgba(66, 69, 95, 0.95);
+}
+
 .btn-primary:hover,
 .btn-primary:focus,
 .btn-primary.focus,
@@ -144,7 +149,7 @@
 .btn-primary.active,
 .open > .dropdown-toggle.btn-primary {
   color: white;
-  background-color: #5f5b5b;
+  background-color: #34495a;
   border-color: #000000;
 }
 .btn-primary:active,

@@ -60,7 +60,7 @@ class UploadHandler(tornado.web.RequestHandler):
         if first_filename.endswith('bird1.jpg') and second_filename.endswith('bird2.jpg'):
             result = True
         else:
-            result = True if ratio > 0.9488 else False
+            result = True if ratio >= 0.945 else False
 
         params = {
             'similarity': result,
