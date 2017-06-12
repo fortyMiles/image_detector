@@ -25,12 +25,12 @@
 </head>
 <body style="overflow: hidden;">
     <header id="header">
-        <nav id="mainNav" class="navbar navbar-default navbar-fixed-top" style="background-color: #231e1e">
-            <a class="navbar-brand page-scroll nav-text" href="/" style="color: #bfbdbd">新华智云<small style="font-size:14px; color: #bfbdbd">-图片版权鉴定</small></a>
+        <nav id="mainNav" class="navbar navbar-default navbar-fixed-top nav-zhiyun">
+            <a class="navbar-brand page-scroll nav-text" href="/" style="color: #FFF">新华智云<small style="font-size:14px; color: #FFF">-图片版权鉴定</small></a>
             <div class="navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a class="page-scroll" style="color: #bfbdbd" href="">Powered by image signature/deep learning techniques <strong>@Matrix-AI</strong> &nbsp &nbsp </a>
+                        <a class="page-scroll" style="color: #ececec" href="">Powered by image signature/deep learning techniques <strong>@Matrix-AI</strong> &nbsp &nbsp </a>
                     </li>
                 </ul>
             </div>
@@ -81,15 +81,16 @@
                 <div class="submit-div">
                     <h2 id="result" style="
                             margin-left: -94px;
-                            margin-top: -60px;;
-                            ">鉴定结果: 以上二图版权
+                            margin-top: -6%;
+                            color: white;
+                            ">鉴定结果: 以上二图间版权
                             {% if similarity %}
                             <span style="color:red">&nbsp冲突&nbsp</span></h2>
                             {% else %}
                             <span style="color:red">&nbsp未冲突&nbsp</span></h2>
                             {% end %}
                         {% raw xsrf_form_html() %}
-                    <input id="submit" type="submit" value="点击检测版权" class="btn btn-primary btn-xl"/>
+                    <input id="submit" type="submit" value="点击检测版权" class="btn btn-primary btn-xl img-submit"/>
                 </div>
                 </form>
             </section>

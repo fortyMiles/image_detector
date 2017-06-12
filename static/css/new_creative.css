@@ -62,6 +62,10 @@
     padding-top: 28%;
 }
 
+.img-submit{
+    margin-top: 2%;
+}
+
 .portfolio-box {
   position: relative;
   display: block;
@@ -184,7 +188,16 @@ fieldset[disabled] .btn-primary.active {
 }
 
 .nav-text{
-    color: #bfbdbd;
+    margin: 0;
+    color: #FFF;
+    font-family: '微软雅黑';
+    line-height: 25px;
+    font-size: 30px;
+}
+
+.nav-zhiyun{
+    background-color: #232323;
+    background-image: -webkit-radial-gradient(center top,#5BBDF8 10%,#232323);
 }
 
 .img-show {
