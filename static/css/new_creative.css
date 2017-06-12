@@ -17,6 +17,7 @@
     border-radius: 3px;
     padding: 10px;
     height: 300px;
+    margin-left: 7%;
 }
 
 
@@ -27,6 +28,7 @@
     border-radius: 3px;
     padding: 10px;
     height: 300px;
+    margin-left: 2%;
 }
 
 .text-shadow{
@@ -38,11 +40,11 @@
     height: 330px;
 }
 .col-left {
-    padding-left: 17%; 
+    padding-left: 16%; 
 }
 
 .col-right {
-    padding-right: 17%; 
+    padding-right: 1%; 
 }
 
 .btn-fix-size {
