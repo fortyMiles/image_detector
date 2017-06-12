@@ -203,6 +203,7 @@ fieldset[disabled] .btn-primary.active {
 
 .nav-left{
     margin-left: 4%;
+    padding: 10px 15px;
 }
 
 .nav-right{
