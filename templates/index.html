@@ -82,10 +82,12 @@
                     <h2 id="result" class="result
                     "><strong>鉴定结果: 以上二图间版权</strong>
                             {% if similarity %}
-                            <span style="color:red">&nbsp冲突&nbsp</span></h2>
+                            <span style="color:red">&nbsp冲突&nbsp </span>  
                             {% else %}
-                            <span style="color:#a8f14d">&nbsp未冲突&nbsp</span></h2>
+                            <span style="color:#a8f14d">&nbsp未冲突&nbsp </span> 
                             {% end %}
+                            &nbsp&nbsp&nbsp<a href="/cases" class="cases-a"><span style="font-size: 14px" class="cases-link">查看更多案例</span></a>
+                            </h2>
                         {% raw xsrf_form_html() %}
                     <input id="submit" type="submit" value="点击检测版权" class="btn btn-primary btn-xl img-submit"/>
                 </div>

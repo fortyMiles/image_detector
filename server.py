@@ -3,6 +3,7 @@ from tornado.options import define, options, parse_command_line
 import os
 import logging
 import uploadhandler
+import casehandler
 
 class UploadForm(tornado.web.RequestHandler):
     def get(self):
@@ -27,6 +28,17 @@ class ParticularHandler(tornado.web.RequestHandler):
     def get(self):
 
         self.render('particular.html')
+
+
+class CasesHandler(tornado.web.RequestHandler):
+    def get(self):
+        lefts, rights, results = casehandler.get_cases_pics()
+        params = {
+            "similarities": results,
+            "lefts": lefts,
+            "rights": rights,
+        }
+        self.render('cases.html', **params)
 
 
 class NewIndex(tornado.web.RequestHandler):
@@ -55,6 +67,7 @@ def main():
             (r"/upload", uploadhandler.UploadHandler,
              dict(upload_path="static/images/", naming_strategy=None)),
             (r"/cool", ParticularHandler),
+            (r"/cases", CasesHandler),
         ],
         debug=True,
         template_path=os.path.join(os.path.dirname(__file__), "./templates"),

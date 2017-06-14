@@ -182,9 +182,14 @@ fieldset[disabled] .btn-primary.active {
 .btn-upload{
     width: 100%;
     background-color: #336380;
-    color: white;
+    color: #cddfe0;
     font-size: 13px;
     margin-top:1%;
+}
+
+.btn-upload.focus, .btn-upload:focus, .btn-upload:hover {
+    color: #f5fdf7;
+    text-decoration: none;
 }
 
 .result {
@@ -192,6 +197,11 @@ fieldset[disabled] .btn-primary.active {
     margin-top: -6%;
     color: #f9fbff;
     font-family: '微软雅黑';
+}
+
+.cases-result{
+    margin-top: -8%;
+    margin-left: -8%;
 }
 
 .nav-text{
@@ -222,4 +232,26 @@ fieldset[disabled] .btn-primary.active {
     height: 243px;
 }
 
+.show-cases{
+    margin-top: 8%;
+}
+
+.show-cases-return-btn{
+    margin-top: 10%;
+    margin-left: 44%;
+}
+
+.show-cases-title{
+    margin-left: 28%;
+    margin-top: 4%;
+    padding-bottom: 0%;
+}
+
+.cases-a{
+    color: #f3ebc0;
+}
+.cases-a:focus, .cases-a:hover {
+    color: #f5fbf7;
+    text-decoration: none;
+}
 
