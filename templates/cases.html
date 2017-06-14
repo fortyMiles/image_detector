@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]> <html class="ie ie6"> <![endif]-->
+<!--[if IE 7 ]>    <html class="ie ie7"> <![endif]-->
+<!--[if IE 8 ]>    <html class="ie ie8"> <![endif]-->
+<!--[if gte IE 9 ]>    <html class="ie"> <![endif]-->
+<!--[if !(IE)]><!--> <html> <!--<![endif]-->
+<head>
+    <meta charset="utf-8"/>
+    <title>新华智云-图片版权检测</title>
+    <meta name="description" content="数据科学"/>
+    <meta name="keywords" content="数据科学,dome"/>
+    <!--[if IE]>
+        <script src="http://a.tbcdn.cn/apps/tdata/js/base/html5-reset.js"></script>
+        <![endif]-->
+        <link rel="stylesheet" type="text/css" href="http://a.tbcdn.cn/apps/tdata/css/global/general.css"/>
+        <link rel="stylesheet" type="text/css" href={{ static_url("js/swm/bootstrap.min.css") }}/>
+        <link rel="stylesheet" type="text/css" href={{ static_url("js/swm/font-awesome.min.css") }}/>
+        <link rel="stylesheet" type="text/css" href={{ static_url("js/swm/fonts.css") }}/>
+        <link rel="stylesheet" type="text/css" href={{ static_url("js/swm/swarm.css") }}/>
+        <link rel="stylesheet" type="text/css" href={{ static_url("css/new_creative.css") }}/>
+        <script src={{ static_url("js/jquery.min.js") }}></script>
+</head>
+<body style="">
+    <header id="header">
+        <nav id="mainNav" class="navbar navbar-default navbar-fixed-top nav-zhiyun">
+            <a class="navbar-brand page-scroll nav-text nav-left" href="/" style="color: #f9fbff"><strong>新华智云</strong><small style="font-size:20px; color: #f9fbff"> - 图片版权鉴定 </small></a>
+            <div class="navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right nav-right">
+                    <li>
+                        <a class="page-scroll" style="color: #ececec" href="">Powered by image signature/deep learning techniques <strong>@Matrix-AI</strong> &nbsp &nbsp </a>
+                    </li>
+                </ul>
+            </div>
+
+        </nav>
+    </header>
+    <div id="show-cases" class="show-cases-title">
+    <h1 class="nav-text nav-left" style="color: #f9fbff">新华智云图片版权鉴定-典型案例</h1>
+    </div>
+    {% for i in range(len(similarities))%}
+        {% if i == 0 %}
+            <div id="content" data-usage="swarm" class="show-cases" style=" margin-top: 1%;">
+        {% else %}
+            <div id="content" data-usage="swarm" class="show-cases">
+        {% end %}
+
+            <canvas id="canvas-anim" width="1440" height="300"></canvas>
+            <div class="mod-search-bar">
+                <section>
+                    <div class="col-lg-6 col-sm-6 col-left">
+                        <div class="search-bar-left">
+                            <a href={{ lefts[i] }} class="portfolio-box">
+                                <img src={{ lefts[i] }} id="blah_1" class="img-responsive img-left img-show" alt="">
+                                <div class="portfolio-box-caption">
+                                    <div class="portfolio-box-caption-content">
+                                        <div class="project-category text-faded">
+                                        </div>
+                                        <input type="hidden" name="filearg1" id='file_01' value="upload one" class="file-upload"/>
+                                    </div>
+                                </div>
+                            </a>
+                            <button type=button id="button_01" class="btn btn-block btn-lg btn-upload" style="width: 100%;margin-to    p:10px;">点击查看大图</button>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-sm-6 col-right">
+                        <a href={{ rights[i] }} class="portfolio-box">
+                            <div class="search-bar-right">
+                                <img src={{ rights[i] }} id="blah_2" class="img-responsive img-right img-show" alt="">
+                                <div class="portfolio-box-caption">
+                                    <div class="portfolio-box-caption-content">
+                                        <div class="project-category text-faded">
+                                        </div>
+                                        <input type="hidden" name="filearg2" id='file_02' value="upload one" class="file-upload"/>
+                                    </div>
+                                </div>
+                            </a>
+                            <button type=button id="button_02" class="btn btn-block btn-lg btn-upload" style="width: 100%;margin-to    p:10px;">点击查看大图</button>
+                        </div>
+                    </div>
+                    <div class="submit-div">
+                        <h2 id="result" class="result cases-result
+                        "><strong>以上二图间版权</strong>
+                                {% if similarities[i] %}
+                                <span style="color:red">&nbsp冲突&nbsp</span></h2>
+                                {% else %}
+                                <span style="color:#a8f14d">&nbsp未冲突&nbsp</span></h2>
+                                {% end %}
+                        </div>
+                    </form>
+                </section>
+            </div>
+        </div>
+    {% end %}
+    <input onclick="window.location='/'" id="submit" type="submit" value="返回主页" class="btn btn-primary btn-xl img-submit show-cases-return-btn"/>
+
+    <footer id="footer">
+        <!-- 页尾 -->
+    </footer>
+    <script type="text/javascript" src={{ static_url("js/swm/merge-v2.0.js") }}></script>
+    <script src={{ static_url("js/swm/index.js") }}></script>
+    <script src={{ static_url("vendor/jquery/jquery.min.js") }}></script>
+
+    <script src={{ static_url("vendor/scrollreveal/scrollreveal.min.js") }}></script>
+    <script src={{ static_url("vendor/magnific-popup/jquery.magnific-popup.min.js") }}></script>
+    <script>
+
+$("#button_01").click(function(){
+    $("#file_01").click();
+});
+$("#button_02").click(function(){
+    $("#file_02").click();
+});
+
+function readURL(input, no) {
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+        reader.onload = function (e) {
+            $('#blah_' + no).attr('src', e.target.result);
+            $('#result').fadeOut(15);
+            $('#empty1').text(" .");
+            $('#empty2').text('.');
+            $('#submit').addClass('btn-ready');
+        }
+
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+
+$("#file_01").change(function(){
+    readURL(this, '1');
+});
+
+$("#file_02").change(function(){
+    readURL(this, '2');
+});
+
+    </script>
+</body>
+</html>
