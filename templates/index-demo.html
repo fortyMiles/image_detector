@@ -44,7 +44,9 @@
         <div class="col-sm-6">
           <div class="card">
             <div class="card-body">
-              <img id="blah_1" class="img-responsive w100 mh300" src={{image1}} alt="">
+              <a href={{image1}} class="portfolio-box">
+                <img id="blah_1" class="img-responsive w100 mh300" src={{image1}} alt="">
+              </a>
             </div>
             <div class="card-foot">
               <input id="xFile1" type="file" class="card-file">
@@ -55,7 +57,9 @@
         <div class="col-sm-6">
           <div class="card">
             <div class="card-body">
-              <img  id="blah_2" class="img-responsive w100 mh300" src={{image2}} alt="">
+              <a href={{image2}} class="portfolio-box">
+                <img  id="blah_2" class="img-responsive w100 mh300" src={{image2}} alt="">
+              </a>
             </div>
             <div class="card-foot">
               <input id="xFile2" type="file" class="card-file">
@@ -75,7 +79,7 @@
             {% raw xsrf_form_html() %}
           </span>
           <a class="pull-right text-more-link" href="/cases">查看更多案例</a>
-        </p>
+        </p> 
       </div> 
       <div class="footer">
         <input type="submit" class="btn btn-success btn-block" value="检测版权"/> 

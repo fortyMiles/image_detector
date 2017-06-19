@@ -36,37 +36,37 @@
 
   <h3 class="title-h3 text-center">新华智云图片版权鉴定 - 典型案例</h3>
   
-  <div class="container wrap-fixed-top">
+  <div class="container wrap-fixed-top" style="position: relative;">
   {% for i in range(len(similarities))%}
-  <!-- {% if i == 0 %}
-  {% else %}
-  {% end %} -->
     <div class="row">  
       <div class="col-sm-6">
-        <div class="card">
-          <div class="card-body">
-            <img id="blah_1" class="img-responsive w100 h300" src={{ lefts[i] }} alt="">
+        <a href={{ lefts[i] }} class="portfolio-box">
+          <div class="card">
+            <div class="card-body">
+              <img id="blah_1" class="img-responsive w100 h300" src={{ lefts[i] }} alt="">
+            </div>
+            <div class="card-foot">
+              <!-- <input id="xFile1" type="file" class="card-file"> -->
+              <button id="button_01" class="btn btn-info btn-block">点击查看大图</button>
+            </div>
           </div>
-          <div class="card-foot">
-            <!-- <input id="xFile1" type="file" class="card-file"> -->
-            <button class="btn btn-info btn-block">点击查看大图</button>
-          </div>
-        </div>
+        </a>
       </div>
-      
-      
+        
       <div class="col-sm-6">
-        <div class="card">
-          <div class="card-body">
-            <img id="blah_1" class="img-responsive w100 h300" src={{ rights[i] }} alt="">
+        <a href={{ rights[i] }} class="portfolio-box">
+          <div class="card">
+            <div class="card-body">   
+              <img id="blah_1" class="img-responsive w100 h300" src={{ rights[i] }} alt="">
+            </div>
+            <div class="card-foot">
+              <!-- <input id="xFile1" type="file" class="card-file"> -->
+              <button id="button_02" class="btn btn-info btn-block">点击查看大图</button>
+            </div>
           </div>
-          <div class="card-foot">
-            <!-- <input id="xFile1" type="file" class="card-file"> -->
-            <button class="btn btn-info btn-block">点击查看大图</button>
-          </div>
-        </div>
+        
+        </a>
       </div>
-
     </div>
     <div class="result">
       <p class="text-center text-result" id="result">
@@ -79,8 +79,8 @@
         </span>
       </p>
     </div>   
-  </div>
   {% end %}
+  </div>
   <div class="footer">
       <input onclick="window.location='/'" id="submit" type="submit" value="返回主页"  class="btn btn-primary btn-block" /> 
     </div>
