@@ -18,7 +18,7 @@ class UploadForm(tornado.web.RequestHandler):
             "placeholder1": "static/" + left,
             "placeholder2": "static/" + right,
         }
-        self.render("index.html", **params)
+        self.render("index-demo.html", **params)
 
     def post(self):
         print('post one thing!')
@@ -38,7 +38,7 @@ class CasesHandler(tornado.web.RequestHandler):
             "lefts": lefts,
             "rights": rights,
         }
-        self.render('cases.html', **params)
+        self.render('cases-demo.html', **params)
 
 
 class NewIndex(tornado.web.RequestHandler):
@@ -54,7 +54,7 @@ class NewIndex(tornado.web.RequestHandler):
             "placeholder1": "static/" + left,
             "placeholder2": "static/" + right,
         }
-        self.render('index.html', **params)
+        self.render('index-demo.html', **params)
 
 
 def main():
