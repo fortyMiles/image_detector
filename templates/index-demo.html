@@ -69,12 +69,12 @@
         </div>
       </div>
       <div class="result">
-        <p class="text-center text-result" id="result">
-          <span class="">图片版权鉴定结果：
+        <p class="text-center text-result mt20" id="result">
+          <span class="f24">版权鉴定结果：
             {% if similarity %}
-              <span class="red f18">&nbsp冲突&nbsp</span> 
+              <span class="red f24 fw">&nbsp冲突&nbsp</span> 
             {% else %}
-              <span style="color:#a8f14d" class="f18">&nbsp未冲突&nbsp </span>
+              <span style="color:#a8f14d" class="f24 fw">&nbsp未冲突&nbsp </span>
             {% end %} 
             {% raw xsrf_form_html() %}
           </span>
@@ -82,7 +82,7 @@
         </p> 
       </div> 
       <div class="footer">
-        <input type="submit" class="btn btn-success btn-block" value="检测版权"/> 
+        <input type="submit" class="btn btn-auto btn-block" value="检测版权"/> 
       </div>
     </div>
     </form>   
