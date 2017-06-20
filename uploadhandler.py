@@ -73,5 +73,5 @@ class UploadHandler(tornado.web.RequestHandler):
             'placeholder2': second_filename,
         }
 
-        self.render("index.html", **params)
+        self.render("index-demo.html", **params)
 
