@@ -62,6 +62,7 @@ class UploadHandler(tornado.web.RequestHandler):
         else:
             result = True if ratio >= 0.945 else False
 
+        print('first file name  ' +  first_filename)
         params = {
             'similarity': result,
             'ratio': "{}%".format(ratio * 100),
