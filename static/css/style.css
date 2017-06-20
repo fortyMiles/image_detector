@@ -34,7 +34,7 @@ p {
 	height: 300px;
 }
 .mh300 {
-	max-height: 300px;
+	height: 280px;
 }
 .f18 {
 	font-size: 18px;
@@ -102,14 +102,17 @@ p {
 .result {
 	width: 100%;
 	margin: 0 auto;
+	height: 74px;
 	max-width: 400px;
 }
 .text-result {
 	color: #fff;
-	margin-bottom: 25px;
+	height: 74px;
+	line-height: 74px;
 }
 .text-more-link {
-	line-height: 33px;
+	height: 74px;
+	line-height: 74px;
 	color:#5bc0de;
 }
 .text-more-link:hover,

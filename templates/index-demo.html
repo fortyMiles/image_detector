@@ -49,7 +49,7 @@
               </a>
             </div>
             <div class="card-foot">
-              <input id="xFile1" type="file" class="card-file">
+              <input id="xFile1" name="filearg1" value="upload one" type="file" class="card-file">
               <label for="xFile1" id="button_01" class="btn btn-info btn-block">点击上传待鉴定图片</label>
             </div>
           </div>
@@ -62,14 +62,14 @@
               </a>
             </div>
             <div class="card-foot">
-              <input id="xFile2" type="file" class="card-file">
+              <input id="xFile2" name="filearg2" type="file" class="card-file">
               <label for="xFile2" id="button_02" class="btn btn-info btn-block">点击上传待鉴定图片</label>
             </div>
           </div>
         </div>
       </div>
       <div class="result">
-        <p class="text-center text-result mt20" id="result">
+        <p class="text-center text-result" id="result">
           <span class="f24">版权鉴定结果：
             {% if similarity %}
               <span class="red f24 fw">&nbsp冲突&nbsp</span> 
@@ -99,7 +99,7 @@
     <script src={{ static_url("js/canvas.js") }}></script>
 <script>
 function readURL(input, no) {
-  console.log('input', input.files, input.files[0])
+  console.log('input', input.files[0])
   if (input.files && input.files[0]) {
     var reader = new FileReader();
     reader.onload = function (e) {
