@@ -10,8 +10,8 @@
     <link rel="stylesheet" type="text/css" href="http://a.tbcdn.cn/apps/tdata/css/global/general.css"/>
     <link rel="stylesheet" type="text/css" href={{ static_url("js/swm/bootstrap.min.css") }}/>
     <link rel="stylesheet" type="text/css" href={{ static_url("js/swm/font-awesome.min.css") }}/>
-    <link rel="stylesheet" type="text/css" href={{ static_url("js/swm/fonts.css") }}/>
-    <link rel="stylesheet" type="text/css" href={{ static_url("js/swm/swarm.css") }}/>
+    <!-- <link rel="stylesheet" type="text/css" href={{ static_url("js/swm/fonts.css") }}/>
+    <link rel="stylesheet" type="text/css" href={{ static_url("js/swm/swarm.css") }}/> -->
      <link rel="stylesheet" type="text/css" href={{ static_url("css/new_creative.css") }}/>    
     <link rel="stylesheet" type="text/css" href={{ static_url("css/style.css") }}/>
    <!--  <link rel="stylesheet" type="text/css" href={{ static_url("css/canvas.css") }}> -->
@@ -21,7 +21,7 @@
     </script>
 </head>
 <body class="not_mobile">
-    <nav class="navbar navbar-inverse navbar-zhiyun">
+    <!-- <nav class="navbar navbar-inverse navbar-zhiyun">
       <div class="container">
         <div class="navbar-header">
           <a class="navbar-brand" href="#">新华智云
@@ -35,26 +35,38 @@
           </div>
         </div>
       </div>    
-    </nav> 
+    </nav>  -->
     <form id='file-uploder' enctype="multipart/form-data" action="/upload" method="post" class="wrap-fixed-top">
     <input type="hidden" value={{placeholder1}} name="placeholder1">
     <input type="hidden" value={{placeholder2}} name="placeholder2">
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-6">
+    <div class="container-fluid">
+      <div class="row relative">
+        <div class="col-sm-6 pr60">
           <div class="card">
             <div class="card-body">
               <a href={{image1}} class="portfolio-box">
-                <img id="blah_1" class="img-responsive w100 mh300" src={{image1}} alt="">
+                <img id="blah_1" class="img-responsive w100" src={{image1}} alt="">
               </a>
             </div>
             <div class="card-foot">
-              <input id="xFile1" type="file" class="card-file">
-              <label for="xFile1" id="button_01" class="btn btn-info btn-block">点击上传待鉴定图片</label>
+              <div class="row">
+                <div class="col-sm-6 card-text">
+                  <span>待鉴定图片1</span>
+                </div>
+                <div class="col-sm-6 text-right">
+                  <input id="xFile1" name="filearg1" value="upload one" type="file" class="card-file">
+                  <label for="xFile1" id="button_01" class="btn btn-info btn-box">点击上传</label>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-        <div class="col-sm-6">
+        <div class="middle-line not_pc">
+          <span class="line"></span>
+          <p class="text">V.S</p>
+          <span class="line"></span>
+        </div>
+        <div class="col-sm-6 pl60">
           <div class="card">
             <div class="card-body">
               <a href={{image2}} class="portfolio-box">
@@ -62,44 +74,53 @@
               </a>
             </div>
             <div class="card-foot">
-              <input id="xFile2" type="file" class="card-file">
-              <label for="xFile2" id="button_02" class="btn btn-info btn-block">点击上传待鉴定图片</label>
+              <div class="row">
+                <div class="col-sm-6 card-text">
+                  <span>待鉴定图片2</span>
+                </div>
+                <div class="col-sm-6 text-right">
+                  <input id="xFile2" name="filearg2" type="file" class="card-file">
+                  <label for="xFile2" id="button_02" class="btn btn-info btn-box">点击上传</label>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
       <div class="result">
-        <p class="text-center text-result mt20" id="result">
-          <span class="f24">版权鉴定结果：
+        <p class="text-center text-result" id="result">
+          <span>结果：
             {% if similarity %}
-              <span class="red f24 fw">&nbsp冲突&nbsp</span> 
+              <span>冲突</span> 
             {% else %}
-              <span style="color:#a8f14d" class="f24 fw">&nbsp未冲突&nbsp </span>
+              <span>未冲突</span>
             {% end %} 
             {% raw xsrf_form_html() %}
           </span>
-          <a class="pull-right text-more-link" href="/cases">查看更多案例</a>
+          <!-- <a class="pull-right text-more-link" href="/cases">查看更多案例</a> -->
         </p> 
       </div> 
       <div class="footer">
-        <input type="submit" class="btn btn-auto btn-block" value="检测版权"/> 
+        <input type="submit" class="btn btn-auto btn-block" value="比较"/> 
       </div>
     </div>
     </form>   
 
     <!-- <canvas id="canvas"></canvas> -->
-    <canvas id="canvas-anim"></canvas>
-
+    <!-- <canvas id="canvas-anim"></canvas> -->
+  
+    <script src="http://t.newscdn.cn/demo-nav/1.0.0/nav.bundle.js"></script>
+    <script src="http://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript" src={{ static_url("js/swm/merge-v2.0.js") }}></script>
-    <script src={{ static_url("js/swm/canvas-anim.js") }}></script>
+    <!-- <script src={{ static_url("js/swm/canvas-anim.js") }}></script> -->
     <script src={{ static_url("js/swm/index.js") }}></script>
-    <script src={{ static_url("vendor/jquery/jquery.min.js") }}></script>
+    <!-- <script src={{ static_url("vendor/jquery/jquery.min.js") }}></script> -->
     <script src={{ static_url("vendor/scrollreveal/scrollreveal.min.js") }}></script>
     <script src={{ static_url("vendor/magnific-popup/jquery.magnific-popup.min.js") }}></script>
-    <script src={{ static_url("js/canvas.js") }}></script>
+    <!-- <script src={{ static_url("js/canvas.js") }}></script> -->
 <script>
 function readURL(input, no) {
-  console.log('input', input.files, input.files[0])
+  console.log('input', input.files[0])
   if (input.files && input.files[0]) {
     var reader = new FileReader();
     reader.onload = function (e) {
