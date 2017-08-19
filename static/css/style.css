@@ -1,6 +1,5 @@
 html, body {
-	/*height: 100%;
-	background: #060e1b;*/
+	height: 100%;
 }
 body {
 	background-color: #f2f2f2;
@@ -56,7 +55,7 @@ p {
 	position: absolute;
 	width: 100%;
 	z-index: 999;
-	margin-top: 172px;
+	margin-top: 122px;
 }
 .navbar {
 	margin-bottom: 0;
