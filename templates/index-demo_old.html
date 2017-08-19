@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>新华智云-图片版权检测</title>
+    <meta name="description" content="数据科学"/>
+    <meta name="keywords" content="数据科学,dome"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" type="text/css" href="http://a.tbcdn.cn/apps/tdata/css/global/general.css"/>
+    <link rel="stylesheet" type="text/css" href={{ static_url("js/swm/bootstrap.min.css") }}/>
+    <link rel="stylesheet" type="text/css" href={{ static_url("js/swm/font-awesome.min.css") }}/>
+    <!-- <link rel="stylesheet" type="text/css" href={{ static_url("js/swm/fonts.css") }}/>
+    <link rel="stylesheet" type="text/css" href={{ static_url("js/swm/swarm.css") }}/> -->
+     <link rel="stylesheet" type="text/css" href={{ static_url("css/new_creative.css") }}/>    
+    <link rel="stylesheet" type="text/css" href={{ static_url("css/style.css") }}/>
+   <!--  <link rel="stylesheet" type="text/css" href={{ static_url("css/canvas.css") }}> -->
+    <script src={{ static_url("js/jquery.min.js") }}></script>
+    <script>
+    console.log('similarity: {{ratio}}');
+    </script>
+</head>
+<body class="not_mobile">
+    <!-- <nav class="navbar navbar-inverse navbar-zhiyun">
+      <div class="container">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">新华智云
+            <span class="navbar-small">- 图片版权鉴定</span>
+          </a>  
+          <p class="navbar-text navbar-toggle-text text-right collapsed">@Matrix-AI</p>
+        </div>
+        <div  class="collapse navbar-collapse">
+          <div class="nav navbar-nav navbar-right">
+            <p class="navbar-text"> Powered by image signature/deep learning techniques <span class="fcf">@Matrix-AI</span></p>
+          </div>
+        </div>
+      </div>    
+    </nav>  -->
+    <form id='file-uploder' enctype="multipart/form-data" action="/upload" method="post" class="wrap-fixed-top">
+    <input type="hidden" value={{placeholder1}} name="placeholder1">
+    <input type="hidden" value={{placeholder2}} name="placeholder2">
+    <div class="container-fluid">
+      <div class="row relative">
+        <div class="col-sm-6 pr60">
+          <div class="card">
+            <div class="card-body">
+              <a href={{image1}} class="portfolio-box">
+                <img id="blah_1" class="img-responsive w100" src={{image1}} alt="">
+              </a>
+            </div>
+            <div class="card-foot">
+              <div class="row">
+                <div class="col-sm-6 card-text">
+                  <span>待鉴定图片1</span>
+                </div>
+                <div class="col-sm-6 text-right">
+                  <input id="xFile1" name="filearg1" value="upload one" type="file" class="card-file">
+                  <label for="xFile1" id="button_01" class="btn btn-info btn-box">点击上传</label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="middle-line not_pc">
+          <span class="line"></span>
+          <p class="text">V.S</p>
+          <span class="line"></span>
+        </div>
+        <div class="col-sm-6 pl60">
+          <div class="card">
+            <div class="card-body">
+              <a href={{image2}} class="portfolio-box">
+                <img  id="blah_2" class="img-responsive w100 mh300" src={{image2}} alt="">
+              </a>
+            </div>
+            <div class="card-foot">
+              <div class="row">
+                <div class="col-sm-6 card-text">
+                  <span>待鉴定图片2</span>
+                </div>
+                <div class="col-sm-6 text-right">
+                  <input id="xFile2" name="filearg2" type="file" class="card-file">
+                  <label for="xFile2" id="button_02" class="btn btn-info btn-box">点击上传</label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="result">
+        <p class="text-center text-result" id="result">
+          <span>结果：
+            {% if similarity %}
+              <span>冲突</span> 
+            {% else %}
+              <span>未冲突</span>
+            {% end %} 
+            {% raw xsrf_form_html() %}
+          </span>
+          <!-- <a class="pull-right text-more-link" href="/cases">查看更多案例</a> -->
+        </p> 
+      </div> 
+      <div class="footer">
+        <input type="submit" class="btn btn-auto btn-block" value="比较"/> 
+      </div>
+    </div>
+    </form>   
+
+    <!-- <canvas id="canvas"></canvas> -->
+    <!-- <canvas id="canvas-anim"></canvas> -->
+  
+    <script src="http://t.newscdn.cn/demo-nav/1.0.0/nav.bundle.js"></script>
+    <script src="http://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src={{ static_url("js/swm/merge-v2.0.js") }}></script>
+    <!-- <script src={{ static_url("js/swm/canvas-anim.js") }}></script> -->
+    <script src={{ static_url("js/swm/index.js") }}></script>
+    <!-- <script src={{ static_url("vendor/jquery/jquery.min.js") }}></script> -->
+    <script src={{ static_url("vendor/scrollreveal/scrollreveal.min.js") }}></script>
+    <script src={{ static_url("vendor/magnific-popup/jquery.magnific-popup.min.js") }}></script>
+    <!-- <script src={{ static_url("js/canvas.js") }}></script> -->
+<script>
+function readURL(input, no) {
+  console.log('input', input.files[0])
+  if (input.files && input.files[0]) {
+    var reader = new FileReader();
+    reader.onload = function (e) {
+        $('#blah_' + no).attr('src', e.target.result);
+        $('#result').fadeOut(15);
+    }
+    reader.readAsDataURL(input.files[0]);
+  }
+} 
+
+$("#xFile1").change(function(){
+    readURL(this, '1');
+});
+
+$("#xFile2").change(function(){
+    readURL(this, '2');
+});
+
+</script>
+</body>
+</html>
