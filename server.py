@@ -6,6 +6,30 @@ import uploadhandler
 import casehandler
 
 
+class UpdateHandler(tornado.web.RequestHandler):
+    def get(self):
+        self.render('upload.html')
+
+    def post(self):
+        new_html = 'new-html'
+        user_name = self.get_body_argument('user-name', default='')
+        user_pwd = self.get_body_argument('user-pwd', default='')
+
+        validation = False
+        if user_name in ['xhzy'] and user_pwd == 'Updat3@S3rv3r':
+            validation = True
+
+        if validation and new_html in self.request.files:
+            file = self.request.files[new_html][0]
+            filename = 'templates/index.html'
+            with open(filename, 'wb') as f:
+                f.write(file['body'])
+                logging.info('uploading new page succeed!')
+            self.write({'result': 'okay'})
+        else:
+            self.write({'result': 'parameters error, need new-html keyword and user-name, user-pwd'})
+
+
 class NewIndex(tornado.web.RequestHandler):
     def get(self):
         self.render('index.html')
@@ -18,6 +42,7 @@ def main():
     application = tornado.web.Application(
         [
             (r"/", NewIndex),
+            (r"/update-page/", UpdateHandler),
             (r"/img/(.*)", uploadhandler.ImageHandler,
              dict(upload_path="static/images/", naming_strategy=None)),
             (r"/check", uploadhandler.CheckHandler,
