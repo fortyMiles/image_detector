@@ -5,56 +5,10 @@ import logging
 import uploadhandler
 import casehandler
 
-class UploadForm(tornado.web.RequestHandler):
-    def get(self):
-        left = 'images/left1.jpg'
-        right = 'images/right1.jpg'
-        params = {
-            "similarity": 'NO',
-            "ratio": '12.3%',
-            "location": "",
-            "image1": self.static_url(left),
-            "image2": self.static_url(right),
-            "placeholder1": "static/" + left,
-            "placeholder2": "static/" + right,
-        }
-        self.render("index-demo.html", **params)
-
-    def post(self):
-        print('post one thing!')
-
-
-class ParticularHandler(tornado.web.RequestHandler):
-    def get(self):
-
-        self.render('particular.html')
-
-
-class CasesHandler(tornado.web.RequestHandler):
-    def get(self):
-        lefts, rights, results = casehandler.get_cases_pics()
-        params = {
-            "similarities": results,
-            "lefts": lefts,
-            "rights": rights,
-        }
-        self.render('cases-demo.html', **params)
-
 
 class NewIndex(tornado.web.RequestHandler):
     def get(self):
-        left = 'img/bird1.jpg'
-        right = 'img/bird2.jpg'
-        params = {
-            "similarity": 'NO',
-            "ratio": '12.3%',
-            "location": "",
-            "image1": self.static_url(left),
-            "image2": self.static_url(right),
-            "placeholder1": "static/" + left,
-            "placeholder2": "static/" + right,
-        }
-        self.render('index-demo.html', **params)
+        self.render('index.html')
 
 
 def main():
@@ -64,10 +18,10 @@ def main():
     application = tornado.web.Application(
         [
             (r"/", NewIndex),
-            (r"/upload", uploadhandler.UploadHandler,
+            (r"/img/(.*)", uploadhandler.ImageHandler,
              dict(upload_path="static/images/", naming_strategy=None)),
-            (r"/cool", ParticularHandler),
-            (r"/cases", CasesHandler),
+            (r"/check", uploadhandler.CheckHandler,
+             dict(upload_path="static/images/", naming_strategy=None)),
         ],
         debug=True,
         template_path=os.path.join(os.path.dirname(__file__), "./templates"),
