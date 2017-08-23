@@ -59,7 +59,7 @@ class CheckHandler(tornado.web.RequestHandler):
         image_1 = 'image1'
         image_2 = 'image2'
 
-        get_argument = lambda key: self.request.body_arguments[key][0].decode('utf-8')
+        get_argument = lambda key: tornado.escape.json_decode(self.request.body)[key]
 
         try:
             image_1_name = get_argument(image_1)
