@@ -74,6 +74,7 @@ class CheckHandler(tornado.web.RequestHandler):
                 'ratio': ratio
             })
         except Exception as e:
+            print(e)
             self.write({'error': 'please check file is been upload to server'})
 
 
