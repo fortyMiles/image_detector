@@ -1,142 +1,284 @@
 <!DOCTYPE html>
-<!--[if lt IE 7 ]> <html class="ie ie6"> <![endif]-->
-<!--[if IE 7 ]>    <html class="ie ie7"> <![endif]-->
-<!--[if IE 8 ]>    <html class="ie ie8"> <![endif]-->
-<!--[if gte IE 9 ]>    <html class="ie"> <![endif]-->
-<!--[if !(IE)]><!--> <html> <!--<![endif]-->
+<html lang="zh-cmn-Hans">
 <head>
     <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <title>新华智云-图片版权检测</title>
     <meta name="description" content="数据科学"/>
     <meta name="keywords" content="数据科学,dome"/>
-    <!--[if IE]>
-        <script src="http://a.tbcdn.cn/apps/tdata/js/base/html5-reset.js"></script>
-        <![endif]-->
-        <link rel="stylesheet" type="text/css" href="http://a.tbcdn.cn/apps/tdata/css/global/general.css"/>
-        <link rel="stylesheet" type="text/css" href={{ static_url("js/swm/bootstrap.min.css") }}/>
-        <link rel="stylesheet" type="text/css" href={{ static_url("js/swm/font-awesome.min.css") }}/>
-        <link rel="stylesheet" type="text/css" href={{ static_url("js/swm/fonts.css") }}/>
-        <link rel="stylesheet" type="text/css" href={{ static_url("js/swm/swarm.css") }}/>
-        <link rel="stylesheet" type="text/css" href={{ static_url("css/new_creative.css") }}/>
-        <script src={{ static_url("js/jquery.min.js") }}></script>
-        <script>
-        console.log('similarity: {{ratio}}');
-        </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <link href="https://cdn.bootcss.com/bootstrap/3.2.0/css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="//t.newscdn.cn/photo-copyright/1.0.0/style.css"> 
+    <!-- <link rel="stylesheet" type="text/css" href={{ static_url("css/style.css") }}/> -->
 </head>
-<body style="overflow: hidden;">
-    <header id="header">
-        <nav id="mainNav" class="navbar navbar-default navbar-fixed-top nav-zhiyun">
-            <a class="navbar-brand page-scroll nav-text nav-left" href="/" style="color: #f9fbff"><strong>新华智云</strong><small style="font-size:20px; color: #f9fbff"> - 图片版权鉴定</small></a>
-            <div class="navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-right nav-right">
-                    <li>
-                        <a class="page-scroll" style="color: #ececec" href="">Powered by image signature/deep learning techniques <strong>@Matrix-AI</strong> &nbsp &nbsp </a>
-                    </li>
-                </ul>
-            </div>
-
-        </nav>
-        <div class="header-wrap clear-float">
-            <h1><b>新华智云 </b><small style="font-size:14px;"> 图片版权鉴定</small></h1>
+<body class="not_mobile">
+  <p id="placeholder1" style="display: none;">02988ae1-f513-4aea-b4f2-dfd90f944d01.jpg</p>
+  <p id="placeholder2" style="display: none;">9c6b254c-3c66-4e26-90f6-b38dc77e27e7.jpg</p>
+  <div class="face-search">
+    <p style="width: 100%;">
+      <h5 style="width: 900px;margin: 0 auto;">选择图片</h5>
+    </p>
+    <div class="show-picture-list">
+      <a class="picture-pre">
+        <i class="anticon anticon-left"></i>
+      </a>
+      <div class="picture-list-wrap">
+        <div class="picture-list" style="margin-left: 0px;">
+          <!-- 北京大雨 -->
+          <img class="select-img" src="//t.newscdn.cn/photo-copyright/1.0.0/img/%E6%AD%A6%E6%B1%89%E5%9C%B0%E9%93%81%E7%AB%99.jpg" data-value1="02988ae1-f513-4aea-b4f2-dfd90f944d01.jpg" data-value2="9c6b254c-3c66-4e26-90f6-b38dc77e27e7.jpg">
+          <!-- 贝鲁特 -->
+          <img class="unselect-img" src="//t.newscdn.cn/photo-copyright/1.0.0/img/%E8%B4%9D%E9%B2%81%E7%89%B9.jpg" data-value1="7a66083d-6600-430f-98ce-aba4b1b7e939.jpg" data-value2="01588771-ef0f-4589-ae81-8576fb2e7e86.jpg">    
+          <!-- 孔明灯 -->
+          <img class="unselect-img" src="//t.newscdn.cn/photo-copyright/1.0.0/img/%E5%AD%94%E6%98%8E%E7%81%AF.jpg" data-value1="3511265e-32fb-45b3-974f-c35e5b44fc93.jpg" data-value2="41ae46ba-94bf-40ad-b721-091a674e2a95.jpg">
+          <!-- 老君山 -->
+          <img class="unselect-img" src="//t.newscdn.cn/photo-copyright/1.0.0/img/%E8%80%81%E5%90%9B%E5%B1%B1.png" data-value1="ccce3c51-b761-4dfa-b9ad-b8efc90e5b1a.jpg" data-value2="0eb0a421-ac8d-4833-8ae9-0928d2c999e8.jpg">  
+          <!-- 印度火车 -->
+          <img class="unselect-img" src="//t.newscdn.cn/photo-copyright/1.0.0/img/%E5%8D%B0%E5%BA%A6%E7%81%AB%E8%BD%A6.png" data-value1="93781076-9f11-4484-90dc-a0ddc1d5995d.jpg" data-value2="e3a882d8-7b88-4fe8-8efe-03db40b086e8.jpg">
+          <!-- 故宫 -->
+          <img class="unselect-img" src="//t.newscdn.cn/photo-copyright/1.0.0/img/%E6%95%85%E5%AE%AB.png" data-value1="6d8ce260-54d0-4ce2-a691-76cabd1a2f75.jpg" data-value2="5bfd7fb8-3ef3-44a3-86d0-bdb3340a0156.jpg">
+          <!-- 天安门 -->
+          <img class="unselect-img" src="//t.newscdn.cn/photo-copyright/1.0.0/img/%E5%A4%A9%E5%AE%89%E9%97%A8.jpg" data-value1="5b216919-1ac1-4544-aff5-bd07cf5c468a.jpg" data-value2="71c84fbd-34dd-4af0-94ae-7d0d51eff4a5.jpg">
         </div>
-    </header>
-    <form id='file-uploder' enctype="multipart/form-data" action="/upload" method="post">
-            <input type="hidden" value={{placeholder1}} name="placeholder1">
-            <input type="hidden" value={{placeholder2}} name="placeholder2">
-
-    <div id="content" data-usage="swarm">
-        <canvas id="canvas-anim" width="1440" height="300"></canvas>
-        <div class="mod-search-bar">
-            <section>
-                <div class="col-lg-6 col-sm-6 col-left">
-                    <div class="search-bar-left">
-                        <a href={{image1}} class="portfolio-box">
-                            <img src={{image1}} id="blah_1" class="img-responsive img-left img-show" alt="">
-                            <div class="portfolio-box-caption">
-                                <div class="portfolio-box-caption-content">
-                                    <div class="project-category text-faded">
-                                    </div>
-                                    <input type="file" name="filearg1" id='file_01' value="upload one" class="file-upload"/>
-                                </div>
-                            </div>
-                        </a>
-                        <button type=button id="button_01" class="btn btn-block btn-lg btn-upload" style="width: 100%;margin-to    p:10px;">点击上传待鉴定图片</button>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-sm-6 col-right">
-                    <a href={{image2}} class="portfolio-box">
-                        <div class="search-bar-right">
-                            <img src={{image2}} id="blah_2" class="img-responsive img-right img-show" alt="">
-                            <div class="portfolio-box-caption">
-                                <div class="portfolio-box-caption-content">
-                                    <div class="project-category text-faded">
-                                    </div>
-                                    <input type="file" name="filearg2" id='file_02' value="upload one" class="file-upload"/>
-                                </div>
-                            </div>
-                        </a>
-                        <button type=button id="button_02" class="btn btn-block btn-lg btn-upload" style="width: 100%;margin-to    p:10px;">点击上传待鉴定图片</button>
-                    </div>
-                </div>
-                <div class="submit-div">
-                    <h2 id="result" class="result
-                    "><strong>鉴定结果: 以上二图间版权</strong>
-                            {% if similarity %}
-                            <span style="color:red">&nbsp冲突&nbsp </span>  
-                            {% else %}
-                            <span style="color:#a8f14d">&nbsp未冲突&nbsp </span> 
-                            {% end %}
-                            &nbsp&nbsp&nbsp<a href="/cases" class="cases-a"><span style="font-size: 14px" class="cases-link">查看更多案例</span></a>
-                            </h2>
-                        {% raw xsrf_form_html() %}
-                    <input id="submit" type="submit" value="点击检测版权" class="btn btn-primary btn-xl img-submit"/>
-                </div>
-                </form>
-            </section>
-        </div>
+      </div>
+      <a class="picture-next">
+        <i class="anticon anticon-right"></i>
+      </a>
     </div>
-    <footer id="footer">
-        <!-- 页尾 -->
-    </footer>
-    <script type="text/javascript" src={{ static_url("js/swm/merge-v2.0.js") }}></script>
-    <script src={{ static_url("js/swm/canvas-anim.js") }}></script>
-    <script src={{ static_url("js/swm/index.js") }}></script>
-    <script src={{ static_url("vendor/jquery/jquery.min.js") }}></script>
+  </div>
+  
+  <div class="demo-and-result">
+    <div class="card pull-left">
+      <div class="card-body">
+        <a href="javascript:;" class="portfolio-box">
+          <img id="blah_1" class="img-responsive" src="" alt="">
+        </a>
+      </div>
+      <div class="card-foot">
+        <div class="row">
+          <div class="col-xs-6 card-text">
+            <span>待鉴定图片1</span>
+          </div>
+          <div class="col-xs-6 text-right">
+            <input id="xFile1" name="filearg1" value="upload one" type="file" class="card-file">
+            <label for="xFile1" id="button_01" class="btn btn-info btn-box">点击上传</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="middle-line not_pc">
+      <span class="line"></span>
+      <p class="text">V.S</p>
+      <span class="line"></span>
+    </div>
+    <div class="card pull-right">
+      <div class="card-body">
+        <a href="javascript:;" class="portfolio-box">
+          <img  id="blah_2" class="img-responsive" src="" alt="">
+        </a>
+      </div>
+      <div class="card-foot">
+        <div class="row">
+          <div class="col-xs-6 card-text">
+            <span>待鉴定图片2</span>
+          </div>
+          <div class="col-xs-6 text-right">
+            <input id="xFile2" name="filearg2" type="file" class="card-file">
+            <label for="xFile2" id="button_02" class="btn btn-info btn-box">点击上传</label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="result">
+    <p class="text-center text-result" id="result">
+      <span>结果：
+          <span id="isConflict">冲突</span> 
+      </span>
+    </p> 
+  </div> 
+  <div class="footer">
+    <input id="submit" type="button" class="btn btn-auto btn-block" value="比较"/> 
+  </div>
+  
+  <script src="http://t.newscdn.cn/demo-nav/1.0.0/nav.bundle.js"></script>
+  <script src="http://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+$(function() {
+var url = '//139.196.99.60:1234';
 
-    <script src={{ static_url("vendor/scrollreveal/scrollreveal.min.js") }}></script>
-    <script src={{ static_url("vendor/magnific-popup/jquery.magnific-popup.min.js") }}></script>
-    <script>
+// 首次加载
+var firstLoad1 = $('#placeholder1').text().trim();
+var firstLoad2 = $('#placeholder2').text().trim();
+getImg(firstLoad1, function(res) {
+  $('#blah_1').attr('src', url + '/img/' + firstLoad1);
+})
+getImg(firstLoad2, function(res) {
+  $('#blah_2').attr('src', url + '/img/' + firstLoad2);
+})
 
-$("#button_01").click(function(){
-    $("#file_01").click();
-});
-$("#button_02").click(function(){
-    $("#file_02").click();
-});
+// 提交比对
+$('#submit').on('click', function() {
+  check();
+})
 
+// base64 显示图片
 function readURL(input, no) {
-    if (input.files && input.files[0]) {
-        var reader = new FileReader();
-        reader.onload = function (e) {
-            $('#blah_' + no).attr('src', e.target.result);
-            $('#result').fadeOut(15);
-            $('#empty1').text(" .");
-            $('#empty2').text('.');
-            $('#submit').addClass('btn-ready');
-        }
-
-        reader.readAsDataURL(input.files[0]);
+  // console.log('input', input.files[0])
+  if (input.files && input.files[0]) {
+    var reader = new FileReader();
+    reader.onload = function (e) {
+        $('#blah_' + no).attr('src', e.target.result);
+        $('#result').fadeOut(15);
     }
+    reader.readAsDataURL(input.files[0]);
+  }
+} 
+
+$("#xFile1").change(function(){
+  readURL(this, '1');
+  var formdata = new FormData();  
+  formdata.append('image', this.files[0]);  
+  postImg(formdata, function(res) {
+    $('#placeholder1').text(res.img);
+  })
+});
+ 
+$("#xFile2").change(function(){
+  readURL(this, '2');
+  var formdata = new FormData();  
+  formdata.append('image', this.files[0]);  
+  postImg(formdata, function(res) {
+    $('#placeholder2').text(res.img);
+  })
+});
+
+// 上传图片
+function postImg(data, success) {
+  var xhr = new XMLHttpRequest();
+  xhr.responseType = 'json';
+  xhr.open('POST', url + '/img/');
+  xhr.onload = function(e) {
+    if (this.status == 200 && this.response.result) {
+      success(this.response)
+    } else {
+      // console.log('error',this.response)
+      success(this.response)
+    }
+  }
+  xhr.onerror = function() {
+    
+  }
+  xhr.send(data);
 }
 
-$("#file_01").change(function(){
-    readURL(this, '1');
-});
+// 选择图片加载
+$('.picture-list').on('click', 'img',function(e) {
+  // 图片选择效果
+  var imgList = $(this).parent().find('img');
+  $.each(imgList, function(i, n) {
+   $(n).removeClass('select-img').addClass('unselect-img');
+  })
+  $(this).removeClass('unselect-img').addClass('select-img');
 
-$("#file_02").change(function(){
-    readURL(this, '2');
-});
+  // 取出隐藏的图片比较
+  var dataValue1 = $(this).attr('data-value1');
+  var dataValue2 = $(this).attr('data-value2');
+  $('#placeholder1').text(dataValue1);
+  $('#placeholder2').text(dataValue2);
 
-    </script>
+  if ($(this).attr('data-slice') == 'true') {
+    $('#blah_2').addClass('slice');
+  } else {
+    $('#blah_2').removeClass('slice');
+  }
+
+  $('#blah_1').attr('src', url + '/img/' + dataValue1);
+  $('#blah_2').attr('src', url + '/img/' + dataValue2);
+
+  check();
+})
+
+// 获得图片
+function getImg(data, success) {
+  $.ajax({
+    type: 'GET',
+    url: url + '/img/'+ data,
+    contentType: 'application/x-www-form-urlencoded',
+    xhrFields: { withCredentials: true },
+    success: function(res) {
+      success(res);
+    },
+    error: function(err) {
+      error(err);
+    }
+  })
+}
+
+// 比对
+function check() {
+  var data = {
+    image1: $('#placeholder1').text().trim(),
+    image2: $('#placeholder2').text().trim()
+  }
+  $.ajax({
+    type: 'POST',
+    url: url + '/check',
+    contentType: 'application/x-www-form-urlencoded',
+    data: JSON.stringify(data),
+    xhrFields: { withCredentials: true },
+    success: function(res) {
+      $('#result').fadeIn(15);
+      var conflict = parseFloat(res.ratio) > parseFloat(0.85);
+      var similarity = parseFloat(res.ratio) > parseFloat(0.78);
+
+      $('#isConflict').text('不冲突');
+      if (similarity) {
+        $('#isConflict').text('极其相似');
+      } 
+      if (conflict) {
+        $('#isConflict').text('冲突');
+      }
+    },
+    error: function(err) {
+      console.log(err);
+    }
+  })
+}
+
+// 前一个
+$('.picture-pre').on('click', function(e) {
+  e.preventDefault();
+  $('.picture-list').css({
+    marginLeft:function(index, value) {
+      if (parseFloat(value) == 0) {
+        return 0;
+      } else {
+        return parseFloat(value) + 104;
+      }
+    }
+  })
+})
+// 后一个
+$('.picture-next').on('click', function(e) {
+  e.preventDefault();
+  $('.picture-list').css({
+    marginLeft:function(index, value) {
+      // 图片的宽度 - 固定显示宽度 = 左偏移的宽度 不能右滚
+      var imgLen = 104 * $('.picture-list').find('img').length;
+      var rightValue = Math.abs(parseFloat(value));
+      var normalValue = Math.abs(parseFloat(imgLen) - 832);
+      if ( normalValue <= rightValue) {
+        $('.picture-next').attr('disabled','true');
+        return parseFloat(value);
+      } else {
+        return parseFloat(value) - 104;
+      }
+    }
+  })
+})
+
+})
+
+</script>
 </body>
 </html>
